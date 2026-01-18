@@ -2,7 +2,9 @@
 
 ---
 ### Changes
-- 
+- Renamed Thermometer to Climate Gauge
+- Added the Lunar Calendar for displaying the moon phase
+- Added the Depth Meter for displaying the depth below sea level
 
 ---
 ### Fixes

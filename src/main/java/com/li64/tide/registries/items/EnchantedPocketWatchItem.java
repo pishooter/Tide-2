@@ -54,9 +54,8 @@ public class EnchantedPocketWatchItem extends PocketWatchItem {
 
     @Override
     public void addTooltip(ItemStack stack, Consumer<Component> tooltip) {
-        Style gray = Component.empty().getStyle().withColor(ChatFormatting.GRAY);
+        super.addTooltip(stack, tooltip);
         Style gold = Component.empty().getStyle().withColor(ChatFormatting.GOLD);
-        tooltip.accept(Component.translatable("item.tide.pocket_watch.desc").setStyle(gray));
         tooltip.accept(Component.translatable("item.tide.enchanted_pocket_watch.desc").setStyle(gold));
     }
 

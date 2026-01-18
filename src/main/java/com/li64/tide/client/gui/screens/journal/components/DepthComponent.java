@@ -10,8 +10,8 @@ import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
 
 public class DepthComponent extends BarComponent {
-    private static final int MIN_Y = -64; // min build height
-    private static final int MAX_Y = 63; // sea level
+    public static final int MIN_Y = -64; // min build height
+    public static final int MAX_Y = 63; // sea level
 
     private static final ResourceLocation DEPTH_BAR = Tide.resource("textures/gui/journal/depth_bar.png");
     private static final Component TITLE = Component.translatable("journal.info.depth.title");

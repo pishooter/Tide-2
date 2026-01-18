@@ -92,6 +92,15 @@ public class TideRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy("has_chain", has(Items.CHAIN))
                 .save(output);
 
+        shapeless(RecipeCategory.TOOLS, TideItems.LUNAR_CALENDAR, 1)
+                .requires(Items.PAPER)
+                .requires(Items.INK_SAC)
+                .requires(Items.SPYGLASS)
+                .unlockedBy("has_paper", has(Items.PAPER))
+                .unlockedBy("has_ink_sac", has(Items.INK_SAC))
+                .unlockedBy("has_spyglass", has(Items.SPYGLASS))
+                .save(output);
+
         shapeless(RecipeCategory.TOOLS, TideItems.ENCHANTED_POCKET_WATCH, 1)
                 .requires(TideItems.POCKET_WATCH)
                 .requires(TideFish.COELACANTH)
@@ -227,6 +236,18 @@ public class TideRecipeProvider extends FabricRecipeProvider {
                 .define('I', TideTags.Convention.IRON_NUGGETS)
                 .define('R', TideTags.Convention.REDSTONE_DUSTS)
                 .unlockedBy("has_redstone", has(TideTags.Convention.REDSTONE_DUSTS))
+                .unlockedBy("has_iron_nugget", has(TideTags.Convention.IRON_NUGGETS))
+                .save(output);
+
+        shaped(RecipeCategory.TOOLS, TideItems.DEPTH_METER, 1)
+                .pattern(" # ")
+                .pattern("#S#")
+                .pattern(" R ")
+                .define('#', TideTags.Convention.IRON_INGOTS)
+                .define('S', Items.STICK)
+                .define('R', TideTags.Convention.REDSTONE_DUSTS)
+                .unlockedBy("has_redstone", has(TideTags.Convention.REDSTONE_DUSTS))
+                .unlockedBy("has_iron_ingot", has(TideTags.Convention.IRON_INGOTS))
                 .save(output);
 
         shaped(RecipeCategory.MISC, TideItems.LUCKY_BAIT, 16)

@@ -162,8 +162,10 @@ public class TideLanguageProvider extends FabricLanguageProvider {
         builder.add(TideItems.FISH_SATCHEL, "Fish Satchel");
         builder.add(TideItems.FISHY_NOTE, "Fishy Note");
 
-        builder.add(TideItems.CLIMATE_GAUGE, "Climate Gauge");
         builder.add(TideItems.POCKET_WATCH, "Pocket Watch");
+        builder.add(TideItems.LUNAR_CALENDAR, "Lunar Calendar");
+        builder.add(TideItems.CLIMATE_GAUGE, "Climate Gauge");
+        builder.add(TideItems.DEPTH_METER, "Depth Meter");
 
         builder.add(TideItems.ENCHANTED_POCKET_WATCH, "Enchanted Pocket Watch");
         builder.add(TideItems.STARLIGHT_BOW, "Starlight Bow");
@@ -333,17 +335,19 @@ public class TideLanguageProvider extends FabricLanguageProvider {
 
         builder.add("item.tide.fish_satchel.desc_0", "Right-click while held to open");
         builder.add("item.tide.fish_satchel.desc_1", "Collects fish automatically while open");
-        builder.add("item.tide.jelly_torch.desc", "Can be placed underwater");
         builder.add("item.tide.chasm_eel.desc", "Use on a bedrock block to eat it");
-        builder.add("item.tide.climate_gauge.desc_0", "Reads biome temperature");
-        builder.add("item.tide.climate_gauge.desc_1", "Unaffected by weather or seasonal changes");
-        builder.add("item.tide.pocket_watch.desc", "Reads precise time");
-        builder.add("item.tide.enchanted_pocket_watch.desc", "Use on a mob to freeze the mob in time");
+        builder.add("item.tide.jelly_torch.desc", "Can be placed underwater");
         builder.add("item.tide.voidseeker.desc", "Sends you to your respawn point when eaten");
         builder.add("item.tide.starlight_bow.desc_0", "Transforms arrows into shooting stars");
         builder.add("item.tide.starlight_bow.desc_1", "60% chance not to consume ammo");
         builder.add("item.tide.dragonfin_boots.desc_0", "Grants a single midair jump");
         builder.add("item.tide.dragonfin_boots.desc_1", "The jump is restored upon touching the ground");
+        builder.add("item.tide.enchanted_pocket_watch.desc", "Use on a mob to freeze the mob in time");
+        builder.add("item.tide.pocket_watch.desc", "Displays precise time");
+        builder.add("item.tide.lunar_calendar.desc", "Displays the current moon phase");
+        builder.add("item.tide.climate_gauge.desc_0", "Displays biome temperature");
+        builder.add("item.tide.climate_gauge.desc_1", "Unaffected by weather or seasonal changes");
+        builder.add("item.tide.depth_meter.desc", "Displays the depth below sea level");
 
         builder.add("item.tide.braided_line.desc", "Increases rod charge speed");
         builder.add("item.tide.reinforced_line.desc", "Increases rod durability");

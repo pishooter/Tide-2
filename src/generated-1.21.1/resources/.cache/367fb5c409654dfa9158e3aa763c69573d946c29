@@ -1,9 +1,10 @@
-// 1.21.1	2026-01-14T08:25:57.2586362	Tide/Recipes
+// 1.21.1	2026-01-18T17:19:58.8488445	Tide/Recipes
 bdb27aae3b862c4e58a3f15ac55557a931e56b28 data\tide\advancement\recipes\tools\reinforced_line.json
 a0a47707718716c3a88ee20e398efd721ec02bd8 data\tide\advancement\recipes\tools\pocket_watch.json
 911f940ffb58c53e741b0e723770276c1821da42 data\tide\recipe\bobbers\heart.json
 7525e6d4ef8bfc7edab10e28f01850b8d8420b02 data\tide\advancement\recipes\decorations\fish_display.json
 2319841d6f9d4d7ff440c31b2f39fd97540ab1b3 data\tide\advancement\recipes\misc\bone_meal_from_fish_bone.json
+089a34646559a5be88cd25e4d9c8d100bb7620b7 data\tide\recipe\depth_meter.json
 d4eec745428a13a750999e894e0a955bee806119 data\tide\advancement\recipes\tools\fishing_hook.json
 2a1dd7fa5cd50415480030615aefc65e7bc08dce data\tide\advancement\recipes\misc\eye_from_endergazer.json
 57c6aa5bf01e7b54e50dde0786e065199bb5c595 data\tide\advancement\recipes\misc\bobbers\enchanted_golden_apple.json
@@ -39,6 +40,7 @@ c22256b9a0d205066badb9839b7163e6827f4ac9 data\tide\advancement\recipes\food\larg
 e310caab4fc17b21a94b8a694ea1ea549524387f data\tide\advancement\recipes\misc\bobbers\magenta.json
 881ea1074f5815d4b55bdb620eed62e9ae5c3e65 data\tide\recipe\fish_satchel.json
 d45129e073a204435e2a2f3ef69189be68cce0ff data\tide\advancement\recipes\combat\starlight_bow.json
+61d9bbf59f89c292a16644835acfae4c13e97209 data\tide\advancement\recipes\tools\lunar_calendar.json
 1a9ad25a10c21ca7374cd8b3d93f97bff1c5f693 data\tide\recipe\bobbers\yellow.json
 2891ff33d4b8f3544730b866fb8cd2542221e2a5 data\tide\recipe\bobbers\duck.json
 be8825d5af0ff6cd8274e7d73c5076f731378aeb data\tide\advancement\recipes\misc\bobbers\purple.json
@@ -79,8 +81,8 @@ fd0a8efb13df97e55a657110667ae4abe132730e data\tide\recipe\iron_fishing_hook.json
 b5cf8e8e95ac4e12a3870ec3e875ce72861ad014 data\tide\recipe\amethyst_from_shrimp.json
 9cd4dab0ddbeb494215eddd73c260ca000a167ff data\tide\advancement\recipes\misc\bobbers\nautilus.json
 7e5a31c6c2d26383e150cb807585435ab3f4e5f1 data\tide\recipe\bobbers\amethyst.json
-920c560b14e9e507ff51d55d1a21e95c89fee82d data\tide\advancement\recipes\misc\bobbers\brown.json
 b7a19fa343c4771e1c975fc7554b6f245fa281e5 data\tide\advancement\recipes\misc\gold_from_minnow.json
+920c560b14e9e507ff51d55d1a21e95c89fee82d data\tide\advancement\recipes\misc\bobbers\brown.json
 e453df339bbf19b722694e471043ec34b9bc3c08 data\tide\recipe\climate_gauge.json
 755094894f8c9f7c1b914a4cb5da2d93de902bc9 data\tide\recipe\cooked_fish_slice_smoking.json
 b8f7522acae5a677b60208f88a3ac9441e5ff9f1 data\tide\recipe\enchanted_pocket_watch.json
@@ -122,7 +124,7 @@ c01d2b154b02cba910871753d14fccb3681543aa data\tide\recipe\bobbers\golden_apple.j
 354a62ea9f18a1d47f1963a13b2b7b00d4dfce06 data\tide\advancement\recipes\tools\midas_rod_smithing.json
 166d7a5d6a98d97f850bd6244eb289de5fc43d17 data\tide\advancement\recipes\misc\jelly_torch_from_sun_emblem.json
 aba3fddac239c9f320514c2767ecd30b056aaf90 data\tide\recipe\bobbers\golden.json
-3a15932cfcedd82bcef4e8eccebf040d8a8c0bfb data\tide\advancement\recipes\tools\climate_gauge.json
+a715f6201d90fa1dcbc9b75b562a276fa52ddd88 data\tide\advancement\recipes\tools\climate_gauge.json
 46b196bdb8c80081644ecbf20809632717c6068b data\tide\advancement\recipes\food\small_cooked_fish_campfire_cooking.json
 8f7210b25caf6542a133493ff028c12a28f4008e data\tide\recipe\lapis_from_lanternfish.json
 28d025122b8a9d0b8e900f0d088f7d87b57a7191 data\tide\recipe\large_cooked_fish_smoking.json
@@ -141,6 +143,7 @@ c66de4075183afa82a6d3c82866f91a2f154c800 data\tide\advancement\recipes\tools\sto
 f5362dc5c6ca76fc006c483e94368824e5595767 data\tide\advancement\recipes\tools\golden_line.json
 0ea78375956fa52cb2bc7747e8b58ce8e949fd24 data\tide\recipe\gold_rod_smithing.json
 3a2228c957b1bd500c9de45f9e2ffabbc0d0cad3 data\tide\advancement\recipes\tools\crystal_rod_smithing.json
+1a89fb8ee95af8a74ea47580163bc0c868fddb26 data\tide\recipe\lunar_calendar.json
 da8682474a60c544d4b0db512bc718d52a16082c data\tide\advancement\recipes\tools\dragonfin_boots_smithing.json
 97bef71a9b8448f8e2a1629ce2b1e82ab198f09b data\tide\advancement\recipes\food\grilled_tuna_smelting.json
 93eb91430a1acf103d04dc58e1c2ce1755810059 data\tide\recipe\angling_table.json
@@ -163,6 +166,7 @@ e2d9285d3b86728bd958cf6fcc15cc23d3dddf75 data\tide\recipe\bobbers\grassy.json
 1c42673b2643893dbe269f12c8f6b985d04009a1 data\tide\advancement\recipes\misc\bobbers\orange.json
 58dbf234cf5e9ec03d87a022c48bce5671101aac data\tide\advancement\recipes\misc\bobbers\lichen.json
 5dbc080de15a1a38b1d0603cc8df5f5a3ad959be data\tide\advancement\recipes\food\grilled_tuna_smoking.json
+5695ee5c983b6454456fbb47120b5120d9f95e7e data\tide\advancement\recipes\tools\depth_meter.json
 9295fcc8fd622f0e105ec085d89c57f45e486729 data\tide\recipe\bobbers\magenta.json
 fd290a45f39c18777da4e83836ac0c69abab83f0 data\tide\advancement\recipes\misc\wooden_crate.json
 19f72bd6789707a3ff9b1ba976b6f56907ec0e27 data\tide\advancement\recipes\misc\bobbers\netherite.json

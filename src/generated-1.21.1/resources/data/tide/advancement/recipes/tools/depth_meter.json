@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_iron_nugget": {
+    "has_iron_ingot": {
       "conditions": {
         "items": [
           {
-            "items": "#c:nuggets/iron"
+            "items": "#c:ingots/iron"
           }
         ]
       },
@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "tide:climate_gauge"
+        "recipe": "tide:depth_meter"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -32,12 +32,12 @@
     [
       "has_the_recipe",
       "has_redstone",
-      "has_iron_nugget"
+      "has_iron_ingot"
     ]
   ],
   "rewards": {
     "recipes": [
-      "tide:climate_gauge"
+      "tide:depth_meter"
     ]
   }
 }
