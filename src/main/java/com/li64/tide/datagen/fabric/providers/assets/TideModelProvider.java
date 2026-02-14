@@ -1,7 +1,10 @@
 //? if fabric {
 package com.li64.tide.datagen.fabric.providers.assets;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.li64.tide.Tide;
+import com.li64.tide.client.TideItemModelProperties;
 import com.li64.tide.registries.TideBlocks;
 import com.li64.tide.registries.TideFish;
 import com.li64.tide.registries.TideItems;
@@ -16,13 +19,12 @@ import net.minecraft.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.data.models.blockstates.PropertyDispatch;
 import net.minecraft.data.models.blockstates.Variant;
 import net.minecraft.data.models.blockstates.VariantProperties;
-import net.minecraft.data.models.model.ModelTemplate;
-import net.minecraft.data.models.model.ModelTemplates;
-import net.minecraft.data.models.model.TextureSlot;
+import net.minecraft.data.models.model.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 
+import java.util.Map;
 import java.util.Optional;
 
 public class TideModelProvider extends FabricModelProvider {
@@ -50,6 +52,20 @@ public class TideModelProvider extends FabricModelProvider {
         generateBlockItem(generator, TideItems.WOODEN_CRATE);
         generateBlockItem(generator, TideItems.OBSIDIAN_CRATE);
         generateBlockItem(generator, TideItems.PURPUR_CRATE);
+
+        generateFishingRod(generator, TideItems.STONE_FISHING_ROD);
+        generateFishingRod(generator, TideItems.IRON_FISHING_ROD);
+        generateFishingRod(generator, TideItems.GOLDEN_FISHING_ROD);
+        generateFishingRod(generator, TideItems.CRYSTAL_FISHING_ROD);
+        generateFishingRod(generator, TideItems.DIAMOND_FISHING_ROD);
+        generateFishingRod(generator, TideItems.NETHERITE_FISHING_ROD);
+        generateFishingRod(generator, TideItems.MIDAS_FISHING_ROD);
+        generateFishingRod(generator, TideItems.ECHO_FISHING_ROD);
+        generateFishingRod(generator, TideItems.PRISMARINE_FISHING_ROD);
+        generateFishingRod(generator, TideItems.SUNFLOWER_FISHING_ROD);
+        generateFishingRod(generator, TideItems.VILLAGE_FISHING_ROD);
+        generateFishingRod(generator, TideItems.AMMONITE_FISHING_ROD);
+        generateFishingRod(generator, TideItems.BLAZING_FISHING_ROD);
 
         generator.generateFlatItem(TideItems.BAIT, ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(TideItems.LUCKY_BAIT, ModelTemplates.FLAT_ITEM);
@@ -102,6 +118,33 @@ public class TideModelProvider extends FabricModelProvider {
         });
 
         TideFish.SPAWNING_ITEMS.forEach(item -> generator.generateFlatItem(item, ModelTemplates.FLAT_ITEM));
+    }
+
+    private void generateFishingRod(ItemModelGenerators generator, Item rod) {
+        ModelTemplates.FLAT_HANDHELD_ROD_ITEM.create(
+                ModelLocationUtils.getModelLocation(rod),
+                TextureMapping.layer0(rod),
+                generator.output,
+                this::fishingRodWithOverrides
+        );
+        ModelTemplates.FLAT_HANDHELD_ROD_ITEM.create(
+                ModelLocationUtils.getModelLocation(rod, "_cast"),
+                TextureMapping.layer0(ModelLocationUtils.getModelLocation(rod, "_cast")),
+                generator.output
+        );
+    }
+
+    private JsonObject fishingRodWithOverrides(ResourceLocation modelLocation, Map<TextureSlot, ResourceLocation> modelGetter) {
+        JsonObject base = ModelTemplates.FLAT_HANDHELD_ROD_ITEM.createBaseTemplate(modelLocation, modelGetter);
+        JsonArray overrides = new JsonArray();
+        JsonObject override = new JsonObject();
+        JsonObject predicate = new JsonObject();
+        predicate.addProperty(TideItemModelProperties.CAST_PROPERTY.toString(), 1);
+        override.add("predicate", predicate);
+        override.addProperty("model", modelLocation.withSuffix("_cast").toString());
+        overrides.add(override);
+        base.add("overrides", overrides);
+        return base;
     }
 
     private void generateBlockItem(ItemModelGenerators generator, Item blockItem) {

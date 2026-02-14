@@ -1,6 +1,26 @@
 {
   "parent": "tide:root",
   "criteria": {
+    "ammonite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tide:ammonite_fishing_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "blazing": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tide:blazing_fishing_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "crystal": {
       "conditions": {
         "items": [
@@ -16,6 +36,16 @@
         "items": [
           {
             "items": "tide:diamond_fishing_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "echo": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tide:echo_fishing_rod"
           }
         ]
       },
@@ -61,11 +91,41 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "prismarine": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tide:prismarine_fishing_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "stone": {
       "conditions": {
         "items": [
           {
             "items": "tide:stone_fishing_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "sunflower": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tide:sunflower_fishing_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "village": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tide:village_fishing_rod"
           }
         ]
       },
@@ -115,10 +175,28 @@
       "diamond"
     ],
     [
+      "netherite"
+    ],
+    [
       "midas"
     ],
     [
-      "netherite"
+      "echo"
+    ],
+    [
+      "prismarine"
+    ],
+    [
+      "sunflower"
+    ],
+    [
+      "village"
+    ],
+    [
+      "ammonite"
+    ],
+    [
+      "blazing"
     ]
   ],
   "sends_telemetry_event": true

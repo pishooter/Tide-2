@@ -39,8 +39,14 @@ public class TideItemTagsProvider extends FabricTagProvider<Item> {
                 .add(TideItems.GOLDEN_FISHING_ROD)
                 .add(TideItems.CRYSTAL_FISHING_ROD)
                 .add(TideItems.DIAMOND_FISHING_ROD)
+                .add(TideItems.NETHERITE_FISHING_ROD)
                 .add(TideItems.MIDAS_FISHING_ROD)
-                .add(TideItems.NETHERITE_FISHING_ROD);
+                .add(TideItems.ECHO_FISHING_ROD)
+                .add(TideItems.PRISMARINE_FISHING_ROD)
+                .add(TideItems.SUNFLOWER_FISHING_ROD)
+                .add(TideItems.VILLAGE_FISHING_ROD)
+                .add(TideItems.AMMONITE_FISHING_ROD)
+                .add(TideItems.BLAZING_FISHING_ROD);
 
         getOrCreateTagBuilder(TideTags.Items.LINES)
                 .add(TideItems.FISHING_LINE)

@@ -136,8 +136,14 @@ public class TideAdvancementProvider extends FabricAdvancementProvider {
                 .addCriterion("golden", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.GOLDEN_FISHING_ROD))
                 .addCriterion("crystal", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.CRYSTAL_FISHING_ROD))
                 .addCriterion("diamond", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.DIAMOND_FISHING_ROD))
-                .addCriterion("midas", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.MIDAS_FISHING_ROD))
                 .addCriterion("netherite", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.NETHERITE_FISHING_ROD))
+                .addCriterion("midas", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.MIDAS_FISHING_ROD))
+                .addCriterion("echo", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.ECHO_FISHING_ROD))
+                .addCriterion("prismarine", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.PRISMARINE_FISHING_ROD))
+                .addCriterion("sunflower", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.SUNFLOWER_FISHING_ROD))
+                .addCriterion("village", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.VILLAGE_FISHING_ROD))
+                .addCriterion("ammonite", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.AMMONITE_FISHING_ROD))
+                .addCriterion("blazing", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.BLAZING_FISHING_ROD))
                 .save(output, Tide.resource("all_fishing_rods").toString());
 
         var legendary = Advancement.Builder.advancement()

@@ -33,6 +33,12 @@ public class TideItems {
     public static final Item CRYSTAL_FISHING_ROD = register("crystal_fishing_rod", properties -> new TideFishingRodItem(2, 80, properties));
     public static final Item DIAMOND_FISHING_ROD = register("diamond_fishing_rod", properties -> new TideFishingRodItem(2, 128, properties));
     public static final Item NETHERITE_FISHING_ROD = register("netherite_fishing_rod", properties -> new TideFishingRodItem(2, 512, properties), new Item.Properties().fireResistant());
+    public static final Item ECHO_FISHING_ROD = register("echo_fishing_rod", properties -> new TideFishingRodItem(3, 256, properties));
+    public static final Item PRISMARINE_FISHING_ROD = register("prismarine_fishing_rod", properties -> new TideFishingRodItem(3, 256, properties));
+    public static final Item SUNFLOWER_FISHING_ROD = register("sunflower_fishing_rod", properties -> new TideFishingRodItem(6, 256, properties));
+    public static final Item VILLAGE_FISHING_ROD = register("village_fishing_rod", properties -> new TideFishingRodItem(4, 256, properties));
+    public static final Item AMMONITE_FISHING_ROD = register("ammonite_fishing_rod", properties -> new TideFishingRodItem(3, 256, properties));
+    public static final Item BLAZING_FISHING_ROD = register("blazing_fishing_rod", properties -> new TideFishingRodItem(4, 256, properties));
 
     public static final Item BAIT = register("bait", Item::new);
     public static final Item LUCKY_BAIT = register("lucky_bait", Item::new);
@@ -160,6 +166,8 @@ public class TideItems {
                     Items.FISHING_ROD,
                     STONE_FISHING_ROD, IRON_FISHING_ROD, GOLDEN_FISHING_ROD,
                     CRYSTAL_FISHING_ROD, DIAMOND_FISHING_ROD, NETHERITE_FISHING_ROD,
+                    ECHO_FISHING_ROD, PRISMARINE_FISHING_ROD, SUNFLOWER_FISHING_ROD,
+                    VILLAGE_FISHING_ROD, AMMONITE_FISHING_ROD, BLAZING_FISHING_ROD,
 
                     BAIT, LUCKY_BAIT, MAGNETIC_BAIT, INCANDESCENT_BAIT, ABYSS_BAIT, SHINY_BAIT,
 

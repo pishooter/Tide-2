@@ -6,7 +6,13 @@
     "tide:golden_fishing_rod",
     "tide:crystal_fishing_rod",
     "tide:diamond_fishing_rod",
+    "tide:netherite_fishing_rod",
     "tide:midas_fishing_rod",
-    "tide:netherite_fishing_rod"
+    "tide:echo_fishing_rod",
+    "tide:prismarine_fishing_rod",
+    "tide:sunflower_fishing_rod",
+    "tide:village_fishing_rod",
+    "tide:ammonite_fishing_rod",
+    "tide:blazing_fishing_rod"
   ]
 }
