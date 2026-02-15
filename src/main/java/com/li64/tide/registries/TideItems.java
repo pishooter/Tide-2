@@ -39,6 +39,8 @@ public class TideItems {
     public static final Item VILLAGE_FISHING_ROD = register("village_fishing_rod", properties -> new TideFishingRodItem(4, 256, properties));
     public static final Item AMMONITE_FISHING_ROD = register("ammonite_fishing_rod", properties -> new TideFishingRodItem(5, 256, properties));
     public static final Item BLAZING_FISHING_ROD = register("blazing_fishing_rod", properties -> new TideFishingRodItem(4, 256, properties));
+    public static final Item HONEYCOMB_FISHING_ROD = register("honeycomb_fishing_rod", properties -> new TideFishingRodItem(5, 256, properties));
+    public static final Item BREEZE_FISHING_ROD = register("breeze_fishing_rod", properties -> new TideFishingRodItem(3, 256, properties));
 
     public static final Item BAIT = register("bait", Item::new);
     public static final Item LUCKY_BAIT = register("lucky_bait", Item::new);
@@ -168,12 +170,13 @@ public class TideItems {
                     CRYSTAL_FISHING_ROD, DIAMOND_FISHING_ROD, NETHERITE_FISHING_ROD,
                     ECHO_FISHING_ROD, PRISMARINE_FISHING_ROD, SUNFLOWER_FISHING_ROD,
                     VILLAGE_FISHING_ROD, AMMONITE_FISHING_ROD, BLAZING_FISHING_ROD,
+                    HONEYCOMB_FISHING_ROD, BREEZE_FISHING_ROD, MIDAS_FISHING_ROD,
 
                     BAIT, LUCKY_BAIT, MAGNETIC_BAIT, INCANDESCENT_BAIT, ABYSS_BAIT, SHINY_BAIT,
 
                     POCKET_WATCH, LUNAR_CALENDAR, CLIMATE_GAUGE, DEPTH_METER, WEATHER_RADIO,
 
-                    ENCHANTED_POCKET_WATCH, STARLIGHT_BOW, MIDAS_FISHING_ROD, DRAGONFIN_BOOTS,
+                    ENCHANTED_POCKET_WATCH, STARLIGHT_BOW, DRAGONFIN_BOOTS,
 
                     ANGLING_TABLE, FISH_DISPLAY,
                     WOODEN_CRATE, OBSIDIAN_CRATE, PURPUR_CRATE
@@ -195,34 +198,6 @@ public class TideItems {
             });
 
             addDisplayItems(
-                    COOKED_FISH, GRILLED_TUNA, FISH_SLICE, COOKED_FISH_SLICE,
-
-                    FISH_BONE, OBSIDIAN_FRAGMENT,
-
-                    JELLY_TORCH,
-
-                    FISHING_HOOK, IRON_HOOK, FIERY_HOOK, PERMAFROST_HOOK,
-                    TWILIGHT_HOOK, LAVAPROOF_HOOK, VOID_HOOK,
-
-                    FISHING_LINE, BRAIDED_LINE, REINFORCED_LINE, GOLDEN_LINE,
-
-                    RED_BOBBER, ORANGE_BOBBER,
-                    YELLOW_BOBBER, LIME_BOBBER,
-                    GREEN_BOBBER, CYAN_BOBBER,
-                    LIGHT_BLUE_BOBBER, BLUE_BOBBER,
-                    PURPLE_BOBBER, MAGENTA_BOBBER,
-                    PINK_BOBBER, WHITE_BOBBER,
-                    LIGHT_GRAY_BOBBER, GRAY_BOBBER,
-                    BLACK_BOBBER, BROWN_BOBBER,
-                    APPLE_BOBBER, GOLDEN_APPLE_BOBBER,
-                    ENCHANTED_GOLDEN_APPLE_BOBBER, IRON_BOBBER,
-                    GOLDEN_BOBBER, DIAMOND_BOBBER,
-                    NETHERITE_BOBBER, AMETHYST_BOBBER,
-                    ECHO_BOBBER, CHORUS_BOBBER,
-                    FEATHER_BOBBER, LICHEN_BOBBER,
-                    NAUTILUS_BOBBER, PEARL_BOBBER,
-                    HEART_BOBBER, GRASSY_BOBBER,
-                    DUCK_BOBBER
             );
         }
         return DISPLAY_ITEMS;

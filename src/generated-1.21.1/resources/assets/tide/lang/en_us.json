@@ -212,6 +212,7 @@
   "item.tide.bluegill_spawn_egg": "Bluegill Spawn Egg",
   "item.tide.braided_line": "Braided Line",
   "item.tide.braided_line.desc": "Increases rod charge speed",
+  "item.tide.breeze_fishing_rod": "Gale Fishing Rod",
   "item.tide.brook_trout": "Brook Trout",
   "item.tide.brook_trout_bucket": "Brook Trout Bucket",
   "item.tide.brook_trout_spawn_egg": "Brook Trout Spawn Egg",
@@ -350,6 +351,7 @@
   "item.tide.guppy_bucket": "Guppy Bucket",
   "item.tide.guppy_spawn_egg": "Guppy Spawn Egg",
   "item.tide.heart_bobber": "Heart Bobber",
+  "item.tide.honeycomb_fishing_rod": "Beeline",
   "item.tide.incandescent_bait": "Incandescent Bait",
   "item.tide.incandescent_larva": "Incandescent Larva",
   "item.tide.incandescent_larva_bucket": "Incandescent Larva Bucket",
@@ -523,7 +525,7 @@
   "item.tide.sun_emblem": "Sun Emblem",
   "item.tide.sun_emblem_bucket": "Sun Emblem Bucket",
   "item.tide.sun_emblem_spawn_egg": "Sun Emblem Spawn Egg",
-  "item.tide.sunflower_fishing_rod": "The Suncatcher",
+  "item.tide.sunflower_fishing_rod": "Suncatcher",
   "item.tide.swordfish": "Swordfish",
   "item.tide.swordfish_bucket": "Swordfish Bucket",
   "item.tide.swordfish_spawn_egg": "Swordfish Spawn Egg",
@@ -850,6 +852,6 @@
   "text.tide.rod_tooltip.midas_bonus": "Catch additional gold items",
   "text.tide.rod_tooltip.netherite_bonus": "Can fish in lava",
   "text.tide.rod_tooltip.prismarine_bonus": "+1 speed and luck while in the rain",
-  "text.tide.rod_tooltip.sunflower_bonus": "+1 luck when in sunlight",
+  "text.tide.rod_tooltip.sunflower_bonus": "+1 luck while in sunlight",
   "text.tide.rod_tooltip.village_bonus": "Catch additional village loot"
 }

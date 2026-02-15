@@ -113,10 +113,12 @@ public class TideLanguageProvider extends FabricLanguageProvider {
         builder.add(TideItems.NETHERITE_FISHING_ROD, "Netherite Fishing Rod");
         builder.add(TideItems.ECHO_FISHING_ROD, "Rod of Resonance");
         builder.add(TideItems.PRISMARINE_FISHING_ROD, "Prismarine Fishing Rod");
-        builder.add(TideItems.SUNFLOWER_FISHING_ROD, "The Suncatcher");
+        builder.add(TideItems.SUNFLOWER_FISHING_ROD, "Suncatcher");
         builder.add(TideItems.VILLAGE_FISHING_ROD, "Rod of the Hero");
         builder.add(TideItems.AMMONITE_FISHING_ROD, "Ammonite Fishing Rod");
         builder.add(TideItems.BLAZING_FISHING_ROD, "Blazing Fishing Rod");
+        builder.add(TideItems.HONEYCOMB_FISHING_ROD, "Beeline");
+        builder.add(TideItems.BREEZE_FISHING_ROD, "Gale Fishing Rod");
 
         builder.add(TideItems.WHITE_BOBBER, "White Bobber");
         builder.add(TideItems.ORANGE_BOBBER, "Orange Bobber");

@@ -144,6 +144,8 @@ public class TideAdvancementProvider extends FabricAdvancementProvider {
                 .addCriterion("village", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.VILLAGE_FISHING_ROD))
                 .addCriterion("ammonite", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.AMMONITE_FISHING_ROD))
                 .addCriterion("blazing", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.BLAZING_FISHING_ROD))
+                .addCriterion("honeycomb", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.HONEYCOMB_FISHING_ROD))
+                .addCriterion("breeze", InventoryChangeTrigger.TriggerInstance.hasItems(TideItems.BREEZE_FISHING_ROD))
                 .save(output, Tide.resource("all_fishing_rods").toString());
 
         var legendary = Advancement.Builder.advancement()

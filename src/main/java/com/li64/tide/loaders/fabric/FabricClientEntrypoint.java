@@ -90,6 +90,8 @@ public class FabricClientEntrypoint implements ClientModInitializer {
         ItemProperties.register(TideItems.VILLAGE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
         ItemProperties.register(TideItems.AMMONITE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
         ItemProperties.register(TideItems.BLAZING_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
+        ItemProperties.register(TideItems.HONEYCOMB_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
+        ItemProperties.register(TideItems.BREEZE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
 
         ItemProperties.register(TideItems.STARLIGHT_BOW, TideItemModelProperties.PULLING_PROPERTY, TideItemModelProperties.PULLING_FUNCTION);
         ItemProperties.register(TideItems.STARLIGHT_BOW, TideItemModelProperties.PULL_PROPERTY, TideItemModelProperties.PULL_FUNCTION);
