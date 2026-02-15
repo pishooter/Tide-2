@@ -5,13 +5,13 @@
 **Fish**
 - Added 8 new fish and their corresponding entities:
   - Zombie Fish
-  - Stone Rockfish
-  - Rock Stonefish
+  - Stone Rockfish (TODO)
+  - Rock Stonefish (TODO)
   - Jewelback
   - Radiant Guppy
-  - Dog Fish
-  - Flopper
-  - Magic Carp
+  - Dog Fish (TODO)
+  - Flopper (TODO)
+  - Magic Carp (TODO)
 
 **Accessories**
 - Accessories and other items that modify fishing have been reworked to fill designated categories. The general rule of thumb is that hooks modify fish availability, lines modify the minigame, bobbers are cosmetic, bait modifies fishing stats, and fishing rods apply miscellaneous bonuses.
@@ -30,22 +30,27 @@
 - Each shiny fish has a unique color, with many having custom-made textures
 - The chance of catching a shiny varies depending on the fish's rarity, with rarer fish having higher shiny chances
 - These chances can be further modified by using a Shiny Fishing Rod, or by equipping Shiny Bait
+- Catching a shiny will allow you to view it in the fishing journal (TODO)
+
+**Fishy Notes** (TODO)
+- The GUI and layout of Fishy Notes has been reworked
+- Reading a Fishy Note will unlock it in the fishing journal under its corresponding fish
 
 **Items**
 - Added 3 new fishing hooks:
   - Fiery Hook
   - Permafrost Hook
   - Twilight Hook
-- Added 3 new fishing lines:
+- Added 3 new fishing lines: (TODO)
   - Iron Line
   - Copper Line
   - Diamond Line
 - Added 8 new themed fishing rods:
   - Sculk Fishing Rod
   - Sunflower Fishing Rod
-  - Honeycomb Fishing Rod
+  - Honeycomb Fishing Rod (TODO)
   - Village Fishing Rod
-  - Breeze Fishing Rod
+  - Breeze Fishing Rod (TODO)
   - Ammonite Fishing Rod
   - Prismarine Fishing Rod
   - Shiny Fishing Rod
@@ -54,7 +59,7 @@
   - Abyss Bait
   - Shiny Bait
 
-**Informational Items**
+**Informational Items** (TODO)
 - Informational items such as the pocket watch and climate gauge now display their stats as a GUI overlay instead of requiring the player to right-click them
 - Their information will be displayed when held in the player's mainhand, offhand, or equipped in a Curios slot.
 - Informational items can be combined via crafting recipes, allowing multiple stats to be viewed at once
