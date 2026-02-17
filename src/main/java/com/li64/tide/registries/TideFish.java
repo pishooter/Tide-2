@@ -626,7 +626,6 @@ public class TideFish {
                     .speed(1.65f)
                     .behavior(MinigameBehavior.PLATEAU)
                     .selectionWeight(7)
-                    .temperature(0.35f, 0.2f)
                     .timeOfDay(
                             new TimeRange(TimeConstants.DAY, 3000),
                             new TimeRange(9000, TimeConstants.DAY_ALT)

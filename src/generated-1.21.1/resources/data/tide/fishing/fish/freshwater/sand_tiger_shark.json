@@ -54,13 +54,6 @@
     "location": "journal.info.location.desert",
     "rarity": "rare"
   },
-  "modifiers": [
-    {
-      "type": "tide:temperature",
-      "preferred_temperature": 0.35,
-      "temperature_tolerance": 0.2
-    }
-  ],
   "selection_weight": 7.0,
   "size": {
     "record_high_cm": 350.0,
