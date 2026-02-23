@@ -48,6 +48,7 @@
   "commands.journal.unlock_all": "Unlocked all fish for %s",
   "container.tide.angling_table": "Upgrade Rod",
   "container.tide.loot_crate": "Crate",
+  "curios.identifier.informational": "Informational",
   "entity.tide.abyss_angler": "Abyss Angler",
   "entity.tide.alpha_fish": "Alpha Fish",
   "entity.tide.amber_rockfish": "Amber Rockfish",

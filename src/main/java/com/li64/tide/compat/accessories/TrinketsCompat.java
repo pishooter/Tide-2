@@ -1,4 +1,5 @@
-package com.li64.tide.compat.trinkets;
+//? if fabric {
+package com.li64.tide.compat.accessories;
 
 import com.li64.tide.data.TideTags;
 import dev.emi.trinkets.api.TrinketsApi;
@@ -18,3 +19,4 @@ public class TrinketsCompat {
                 });
     }
 }
+//?}

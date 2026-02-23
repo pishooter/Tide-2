@@ -186,6 +186,8 @@ dependencies {
         if (minecraft == "1.21.1") {
             // neo 1.21.1
             modstitchModApi("me.shedaniel.cloth:cloth-config-neoforge:15.0.140")
+            modstitchModApi("top.theillusivec4.curios:curios-neoforge:9.5.1+1.21.1:api")
+            modstitchModRuntimeOnly("top.theillusivec4.curios:curios-neoforge:9.5.1+1.21.1")
             modstitchModCompileOnly("curse.maven:serene-seasons-291874:6182596")
             modstitchModCompileOnly("curse.maven:ecliptic-seasons-1118306:7304586")
             modstitchModCompileOnly("curse.maven:stardew-fishing-1066037:7266308")

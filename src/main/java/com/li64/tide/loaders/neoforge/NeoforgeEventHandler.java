@@ -10,14 +10,7 @@ import com.li64.tide.data.player.TidePlayerData;
 import com.li64.tide.events.TideEventHandler;
 import com.li64.tide.registries.TideFish;
 import com.li64.tide.registries.TideItems;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.entity.npc.VillagerTrades;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.trading.ItemCost;
-import net.minecraft.world.item.trading.MerchantOffer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.AddReloadListenerEvent;
@@ -26,9 +19,7 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
-import net.neoforged.neoforge.event.village.VillagerTradesEvent;
-
-import java.util.List;
+import net.neoforged.neoforge.event.tick.ServerTickEvent;
 
 @EventBusSubscriber(modid = Tide.MOD_ID)
 public class NeoforgeEventHandler {
@@ -52,6 +43,11 @@ public class NeoforgeEventHandler {
     @SubscribeEvent
     public static void onServerStarted(final ServerStartedEvent event) {
         TideEventHandler.serverStarted();
+    }
+
+    @SubscribeEvent
+    public static void onServerTick(final ServerTickEvent.Post event) {
+        TideEventHandler.endServerTick(event.getServer());
     }
 
     @SubscribeEvent

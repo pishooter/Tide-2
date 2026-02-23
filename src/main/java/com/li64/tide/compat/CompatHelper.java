@@ -3,7 +3,6 @@ package com.li64.tide.compat;
 import com.li64.tide.Tide;
 import com.li64.tide.compat.fishingreal.FishingRealCompat;
 import com.li64.tide.compat.hybridaquatic.HybridAquaticCompat;
-import com.li64.tide.compat.trinkets.TrinketsCompat;
 import com.li64.tide.registries.entities.misc.fishing.HookAccessor;
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
 import net.minecraft.server.level.ServerPlayer;
@@ -17,9 +16,12 @@ import net.minecraft.world.phys.Vec3;
 import java.util.ArrayList;
 import java.util.List;
 
-//? if neoforge || forge {
+//? if fabric {
+import com.li64.tide.compat.accessories.TrinketsCompat;
+//?} else {
 /*import com.li64.tide.compat.stardewfishing.StardewFishingCompat;
 import com.li64.tide.compat.starcatcher.StarcatcherCompat;
+import com.li64.tide.compat.accessories.CuriosCompat;
 *///?}
 
 public class CompatHelper {
@@ -60,6 +62,7 @@ public class CompatHelper {
     }
 
     public static void addSurveyItemsFromAccessories(Player player, ArrayList<Item> items) {
-        if (Tide.PLATFORM.isModLoaded("trinkets")) TrinketsCompat.addSurveyItems(player, items);
+        /*? if fabric {*/if (Tide.PLATFORM.isModLoaded("trinkets")) TrinketsCompat.addSurveyItems(player, items);
+        /*?} else*//*if (Tide.PLATFORM.isModLoaded("curios")) CuriosCompat.addSurveyItems(player, items);*/
     }
 }

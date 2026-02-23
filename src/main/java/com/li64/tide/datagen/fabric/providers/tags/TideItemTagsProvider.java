@@ -177,6 +177,9 @@ public class TideItemTagsProvider extends FabricTagProvider<Item> {
         getOrCreateTagBuilder(TideTags.Items.TRINKETS_INFORMATIONAL)
                 .forceAddTag(TideTags.Items.INFORMATIONAL);
 
+        getOrCreateTagBuilder(TideTags.Items.CURIOS_INFORMATIONAL)
+                .forceAddTag(TideTags.Items.INFORMATIONAL);
+
         /* Common tags */
 
         getOrCreateTagBuilder(TagKey.create(Registries.ITEM, Tide.resource("forge", "tools/fishing_rods")))

@@ -673,6 +673,7 @@ public class TideLanguageProvider extends FabricLanguageProvider {
 
         builder.add("itemGroup.tide.main", "Tide");
         builder.add("trinkets.slot.hand.informational", "Informational");
+        builder.add("curios.identifier.informational", "Informational");
     }
 
     private void fishTranslation(Item item, String translation, TranslationBuilder builder) {

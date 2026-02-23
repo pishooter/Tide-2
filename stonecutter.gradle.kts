@@ -21,6 +21,7 @@ allprojects {
         maven("https://maven.shedaniel.me/")
         maven("https://maven.terraformersmc.com/")
         maven("https://maven.ladysnake.org/releases")
+        maven("https://maven.theillusivec4.top/")
         maven("https://cursemaven.com")
         exclusiveContent {
             forRepository {
