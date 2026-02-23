@@ -41,7 +41,8 @@ public class TideBlockTagsProvider extends FabricTagProvider<Block> {
 
         getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(TideBlocks.PURPUR_CRATE)
-                .add(TideBlocks.OBSIDIAN_CRATE);
+                .add(TideBlocks.OBSIDIAN_CRATE)
+                .add(TideBlocks.WEATHER_RADIO);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(TideBlocks.OBSIDIAN_CRATE);
