@@ -9,12 +9,14 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -145,22 +147,29 @@ public class TideItemTagsProvider extends FabricTagProvider<Item> {
                 .add(TideFish.VOIDSEEKER)
                 .add(TideFish.DRAGON_FISH);
 
+        getOrCreateTagBuilder(TideTags.Items.CAT_FOOD).forceAddTag(TideTags.Items.COOKABLE_FISH)
+                .add(Items.SALMON).add(Items.COD);
+
         FabricTagBuilder fishBuilder = getOrCreateTagBuilder(TideTags.Items.FISH)
                 .forceAddTag(TideTags.Items.VANILLA_FISH);
         TideFish.FISH_KEYS.forEach(fishBuilder::add);
 
         FabricTagBuilder cookableFishBuilder = getOrCreateTagBuilder(TideTags.Items.COOKABLE_FISH);
-        TideFish.COOKABLE_FISH_MAP.values().stream().flatMap(List::stream).forEach(cookableFishBuilder::add);
-        getOrCreateTagBuilder(TideTags.Items.CAT_FOOD).forceAddTag(TideTags.Items.COOKABLE_FISH)
-                .add(Items.SALMON).add(Items.COD);
+        TideFish.COOKABLE_FISH_MAP.values().stream()
+                .flatMap(List::stream)
+                .sorted(Comparator.comparing(ResourceKey::toString))
+                .forEach(cookableFishBuilder::add);
 
         FabricTagBuilder cookedFishBuilder = getOrCreateTagBuilder(TideTags.Items.COOKED_FISH)
                 .add(Items.COOKED_COD).add(Items.COOKED_SALMON);
-        TideFish.COOKABLE_FISH_MAP.forEach((cookedItem, rawItems) -> {
-            FabricTagBuilder cookableTag = getOrCreateTagBuilder(TideTags.Cookables.getCookableTag(cookedItem));
-            rawItems.forEach(cookableTag::add);
-            cookedFishBuilder.add(cookedItem);
-        });
+        TideFish.COOKABLE_FISH_MAP.entrySet().stream()
+                .sorted(Comparator.comparing(entry -> entry.getKey().toString()))
+                .forEach(entry -> {
+                    Item cookedItem = entry.getKey();
+                    FabricTagBuilder cookableTag = getOrCreateTagBuilder(TideTags.Cookables.getCookableTag(cookedItem));
+                    entry.getValue().forEach(cookableTag::add);
+                    cookedFishBuilder.add(cookedItem);
+                });
 
         getOrCreateTagBuilder(TideTags.Items.CRATES)
                 .add(TideItems.WOODEN_CRATE)
