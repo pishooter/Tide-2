@@ -17,12 +17,17 @@ public class TideBlockLootProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         this.dropSelf(TideBlocks.ANGLING_TABLE);
+        this.dropSelf(TideBlocks.FISH_DISPLAY);
+
         this.dropSelf(TideBlocks.WOODEN_CRATE);
         this.dropSelf(TideBlocks.OBSIDIAN_CRATE);
         this.dropSelf(TideBlocks.PURPUR_CRATE);
-        this.dropSelf(TideBlocks.FISH_DISPLAY);
+
         this.dropSelf(TideBlocks.JELLY_TORCH);
         this.dropSelf(TideBlocks.JELLY_WALL_TORCH);
+
+        this.dropSelf(TideBlocks.LUNAR_CALENDAR);
+        this.dropSelf(TideBlocks.WEATHER_RADIO);
     }
 }
 //?}
