@@ -52,6 +52,10 @@ public class CompatHelper {
 
     // -- stardew fishing --
 
+    public static boolean useStardewMinigame() {
+        return Tide.PLATFORM.isModLoaded("stardew_fishing");
+    }
+
     public static boolean stardewFishingStartMinigame(ServerPlayer player, HookAccessor hook, ItemStack rod, List<ItemStack> hookedItems) {
         /*? if neoforge || forge {*/ /*return StardewFishingCompat.start(player, hook, rod, hookedItems);
         *//*?} else*/ return false;

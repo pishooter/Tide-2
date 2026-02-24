@@ -196,10 +196,8 @@ public class TideFishingRodItem extends FishingRodItem {
 
             if (isMinigameStopped(player, level.isClientSide()) && Tide.CONFIG.minigame.doMinigame) {
                 // No minigame active, create a new one if necessary
-                if (Tide.PLATFORM.isModLoaded("starcatcher")) {
-                    if (hook.getCatchType() == TideFishingHook.CatchType.FISH
-                            || hook.getCatchType() == TideFishingHook.CatchType.ITEM) {
-
+                if (CompatHelper.useStarcatcherMinigame()) {
+                    if (hook.getCatchType() == TideFishingHook.CatchType.FISH) {
                         if (!level.isClientSide()) {
                             level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.FISHING_BOBBER_RETRIEVE,
                                     SoundSource.NEUTRAL, 1.2F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
@@ -212,7 +210,7 @@ public class TideFishingRodItem extends FishingRodItem {
                     }
                     else retrieveHook(player.getItemInHand(hand), player, level);
                 }
-                else if (Tide.PLATFORM.isModLoaded("stardew_fishing")) {
+                else if (CompatHelper.useStardewMinigame()) {
                     if (hook.getCatchType() == TideFishingHook.CatchType.FISH
                             || hook.getCatchType() == TideFishingHook.CatchType.ITEM) {
 

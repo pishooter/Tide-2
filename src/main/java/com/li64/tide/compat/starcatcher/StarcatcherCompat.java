@@ -3,8 +3,8 @@
 
 import com.li64.tide.Tide;
 import com.li64.tide.network.messages.StarcatcherStartMinigameMsg;
-import com.li64.tide.registries.TideFish;
 import com.li64.tide.registries.entities.misc.fishing.HookAccessor;
+import com.wdiscute.starcatcher.Starcatcher;
 import com.wdiscute.starcatcher.io.ModDataComponents;
 import com.wdiscute.starcatcher.io.SingleStackContainer;
 import com.wdiscute.starcatcher.storage.FishProperties;
@@ -14,18 +14,28 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
 import java.util.List;
+import java.util.Optional;
 
 public class StarcatcherCompat {
     public static boolean start(ServerPlayer player, HookAccessor hook, ItemStack rod, List<ItemStack> hookedItems) {
         if (hookedItems.isEmpty()) return false;
-        FishProperties properties = FishProperties.builder()
-                .withFish(hookedItems.get(0).getItemHolder()).build();
 
+        // assign data components to rod item
         ItemStack fakeRod = rod.copy();
         fakeRod.set(ModDataComponents.BOBBER, new SingleStackContainer(new ItemStack(Items.AIR)));
         fakeRod.set(ModDataComponents.HOOK, new SingleStackContainer(new ItemStack(Items.AIR)));
         fakeRod.set(ModDataComponents.BAIT, new SingleStackContainer(new ItemStack(Items.AIR)));
 
+        // try get minigame properties for current fish
+        Optional<FishProperties> optional = player.level().registryAccess()
+                .registryOrThrow(Starcatcher.FISH_REGISTRY)
+                .getOptional(BuiltInRegistries.ITEM.getKey(hookedItems.get(0).getItem()));
+
+        // unwrap it or use a fallback if it doesn't exist
+        FishProperties properties = optional.orElseGet(() -> FishProperties.builder()
+                .withFish(hookedItems.get(0).getItemHolder()).build());
+
+        // start the minigame
         Tide.NETWORK.sendToPlayer(new StarcatcherStartMinigameMsg(properties, fakeRod), player);
         return true;
     }
