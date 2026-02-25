@@ -57,7 +57,7 @@ public record FishDisplayRenderer(EntityRenderDispatcher entityRenderer) impleme
             if (entity != null) {
                 if (displayData.nbt().isPresent()) entity.load(displayData.nbt().get());
                 if (CompatHelper.isHybridAquaticLoaded()) CompatHelper.hybridAquaticApplyVariant(entity, display.getDisplayStack());
-                if (entity instanceof ShinyFish shiny && display.isShiny()) shiny.setIsShiny(true);
+                if (entity instanceof ShinyFish shiny && display.isShiny()) shiny.tide$setIsShiny(true);
                 entity.xRotO = entity.getXRot();
                 entity.yRotO = entity.getYRot();
             }

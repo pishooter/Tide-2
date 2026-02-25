@@ -1,8 +1,9 @@
 package com.li64.tide.registries.entities.fish;
 
 public interface ShinyFish {
-    boolean isShiny();
-    boolean hasCustomShinySprite();
+    String tide$SHINY_KEY = "IsShiny";
 
-    void setIsShiny(boolean isShiny);
+    default boolean tide$isShiny() { return false; }
+
+    default void tide$setIsShiny(boolean isShiny) {}
 }

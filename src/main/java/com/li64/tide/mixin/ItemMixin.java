@@ -5,6 +5,7 @@ import com.li64.tide.TideConfig;
 import com.li64.tide.data.FishLengthHolder;
 import com.li64.tide.data.fishing.FishData;
 import com.li64.tide.data.item.TideItemData;
+import com.li64.tide.registries.entities.fish.ShinyFish;
 import com.li64.tide.util.TideUtils;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.SlotAccess;
@@ -30,7 +31,8 @@ import net.minecraft.world.item.component.CustomData;
 import java.util.Optional;
 
 @Mixin(Item.class)
-public abstract class ItemMixin {
+public abstract class
+ItemMixin {
     @Inject(at = @At(value = "RETURN"), method = "overrideStackedOnOther", cancellable = true)
     public void overrideStackedOnOther(ItemStack stack, Slot slot, ClickAction action, Player player, CallbackInfoReturnable<Boolean> cir) {
         if (Tide.CONFIG.items.bucketableFishItems != TideConfig.Items.BucketableMode.NEVER
@@ -72,10 +74,17 @@ public abstract class ItemMixin {
         *///?}
 
         ItemStack newStack = new ItemStack(data.bucket().get());
-        if (TideItemData.FISH_LENGTH.isPresent(fish)) {
+        if (TideItemData.FISH_LENGTH.isPresent(fish) || TideItemData.IS_SHINY.isPresent(fish)) {
             double length = TideItemData.FISH_LENGTH.getOrDefault(fish, 0.0);
-            /*? if >=1.21 {*/CustomData.update(DataComponents.BUCKET_ENTITY_DATA, newStack, tag -> tag.putDouble("Length", length));
-            /*?} else*//*newStack.getOrCreateTag().putDouble(FishLengthHolder.tide$LENGTH_KEY, length);*/
+            boolean isShiny = TideItemData.IS_SHINY.getOrDefault(fish, false);
+            /*? if >=1.21 {*/CustomData.update(DataComponents.BUCKET_ENTITY_DATA, newStack, tag -> {
+                if (TideItemData.FISH_LENGTH.isPresent(fish)) tag.putDouble(FishLengthHolder.tide$LENGTH_KEY, length);
+                if (TideItemData.IS_SHINY.isPresent(fish)) tag.putBoolean(ShinyFish.tide$SHINY_KEY, isShiny);
+            });
+            /*?} else*/
+            /*newStack.getOrCreateTag().putDouble(FishLengthHolder.tide$LENGTH_KEY, length);
+            newStack.getOrCreateTag().putBoolean(ShinyFish.tide$SHINY_KEY, isShiny);
+            */
         }
 
         fish.shrink(1);

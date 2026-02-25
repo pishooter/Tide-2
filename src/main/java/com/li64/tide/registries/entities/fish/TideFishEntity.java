@@ -1,5 +1,6 @@
 package com.li64.tide.registries.entities.fish;
 
+import com.li64.tide.Tide;
 import com.li64.tide.compat.seasons.SeasonsCompat;
 import com.li64.tide.data.fishing.FishData;
 import com.li64.tide.data.fishing.FishingContext;
@@ -10,6 +11,9 @@ import com.li64.tide.util.TideUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -31,21 +35,15 @@ import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("unused")
 public class TideFishEntity extends AbstractSchoolingFish implements ShinyFish {
-    private final Item bucketItem;
+    private static final EntityDataAccessor<Boolean> IS_SHINY =
+            SynchedEntityData.defineId(TideFishEntity.class, EntityDataSerializers.BOOLEAN);
 
-    private boolean isShiny;
-    private boolean hasCustomShinySprite;
+    private final Item bucketItem;
 
     public TideFishEntity(EntityType<? extends AbstractSchoolingFish> entityType, Level level) {
         super(entityType, level);
         ResourceLocation key = BuiltInRegistries.ENTITY_TYPE.getKey(entityType);
         this.bucketItem = BuiltInRegistries.ITEM.getOptional(key.withSuffix("_bucket")).orElseThrow();
-
-        Item fishItem = BuiltInRegistries.ITEM.getOptional(key).orElseThrow();
-        FishData data = FishData.get(fishItem).orElse(null);
-        if (data == null) return;
-        this.isShiny = true; // TODO
-        this.hasCustomShinySprite = data.shinyData().sprite().isPresent();
     }
 
     @Override
@@ -72,6 +70,25 @@ public class TideFishEntity extends AbstractSchoolingFish implements ShinyFish {
     public @NotNull AbstractSchoolingFish startFollowing(AbstractSchoolingFish leader) {
         if (leader.getType() == this.getType()) return super.startFollowing(leader);
         return this;
+    }
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(IS_SHINY, false);
+    }
+
+    @Override
+    public boolean tide$isShiny() {
+        if (this.level().isClientSide()) return this.getEntityData().get(IS_SHINY);
+        return ShinyFish.super.tide$isShiny();
+    }
+
+    @Override
+    public void tide$setIsShiny(boolean isShiny) {
+        ShinyFish.super.tide$setIsShiny(isShiny);
+        if (this.level().isClientSide()) return;
+        if (isShiny) this.getEntityData().set(IS_SHINY, true);
     }
 
     @SuppressWarnings("deprecation")
@@ -126,20 +143,5 @@ public class TideFishEntity extends AbstractSchoolingFish implements ShinyFish {
 //        if (conditionsMatch && !nonzeroWeight) info = "Failed, modifiers didn't match";
 //        Tide.LOG.info("Trying to spawn tide fish '{}' at {}. {}", entityType, pos, info);
         return conditionsMatch && nonzeroWeight;
-    }
-
-    @Override
-    public boolean isShiny() {
-        return this.isShiny;
-    }
-
-    @Override
-    public boolean hasCustomShinySprite() {
-        return this.hasCustomShinySprite;
-    }
-
-    @Override
-    public void setIsShiny(boolean isShiny) {
-        this.isShiny = isShiny;
     }
 }
