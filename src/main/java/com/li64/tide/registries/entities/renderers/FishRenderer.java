@@ -1,6 +1,8 @@
 package com.li64.tide.registries.entities.renderers;
 
 import com.li64.tide.Tide;
+import com.li64.tide.client.TideRenderTypes;
+import com.li64.tide.registries.entities.fish.ShinyFish;
 import com.li64.tide.registries.entities.models.FishModel;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -36,6 +38,10 @@ public class FishRenderer<M extends FishModel> extends MobRenderer<Mob, FishMode
 
     @Override
     public @NotNull ResourceLocation getTextureLocation(@NotNull Mob entity) {
+        if (entity instanceof ShinyFish shiny && shiny.isShiny() && shiny.hasCustomShinySprite()) {
+            return this.getTextureLocation().withPath(path ->
+                    path.replace(".png", "_shiny.png"));
+        }
         return this.getTextureLocation();
     }
 
@@ -70,12 +76,17 @@ public class FishRenderer<M extends FishModel> extends MobRenderer<Mob, FishMode
 
     @Override
     protected @Nullable RenderType getRenderType(@NotNull Mob fish, boolean isVisible, boolean renderTranslucent, boolean appearsGlowing) {
-        if (this.renderTranslucent) return RenderType.entityTranslucent(this.getTextureLocation(fish));
+        ResourceLocation texture = this.getTextureLocation(fish);
+        if (fish instanceof ShinyFish shiny && shiny.isShiny()) {
+            if (!shiny.hasCustomShinySprite()) return TideRenderTypes.shinyEntity(texture);
+        }
+        if (this.renderTranslucent) return RenderType.entityTranslucent(texture);
         return super.getRenderType(fish, isVisible, renderTranslucent, appearsGlowing);
     }
 
     @Override
-    protected int getBlockLightLevel(@NotNull Mob entity, @NotNull BlockPos pos) {
-        return Math.max(super.getBlockLightLevel(entity, pos), model.brightnessOverride());
+    protected int getBlockLightLevel(@NotNull Mob fish, @NotNull BlockPos pos) {
+        if (fish instanceof ShinyFish shiny && shiny.isShiny()) return 15;
+        return Math.max(super.getBlockLightLevel(fish, pos), model.brightnessOverride());
     }
 }

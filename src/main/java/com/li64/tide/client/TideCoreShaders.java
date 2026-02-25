@@ -7,6 +7,7 @@ public class TideCoreShaders {
     public static ShaderInstance FULL_WHITE_ITEM;
     public static ShaderInstance SHINY_ITEM;
     public static ShaderInstance CUSTOM_SHINY_ITEM;
+    public static ShaderInstance CUSTOM_SHINY_ENTITY;
 
     public static ShaderInstance fullWhite() {
         return FULL_WHITE;

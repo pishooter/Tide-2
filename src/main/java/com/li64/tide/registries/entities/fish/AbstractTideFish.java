@@ -32,18 +32,27 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.component.CustomData;
 //?}
 
-public abstract class AbstractTideFish extends WaterAnimal implements Bucketable, FishLengthHolder {
+public abstract class AbstractTideFish extends WaterAnimal implements Bucketable, FishLengthHolder, ShinyFish {
     private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(AbstractTideFish.class, EntityDataSerializers.BOOLEAN);
 
     private final Item bucketItem;
     private double length;
 
+    private boolean isShiny;
+    private boolean hasCustomShinySprite;
+
     public AbstractTideFish(EntityType<? extends WaterAnimal> entityType, Level level) {
         super(entityType, level);
+
         ResourceLocation key = BuiltInRegistries.ENTITY_TYPE.getKey(entityType);
         Item fishItem = BuiltInRegistries.ITEM.getOptional(key).orElseThrow();
         this.bucketItem = BuiltInRegistries.ITEM.getOptional(key.withSuffix("_bucket")).orElseThrow();
         this.length = FishData.get(fishItem).map(data -> data.getRandomLength(getRandom())).orElse(0.0);
+
+        FishData data = FishData.get(fishItem).orElse(null);
+        if (data == null) return;
+        this.isShiny = true; // TODO
+        this.hasCustomShinySprite = data.shinyData().sprite().isPresent();
     }
 
     @Override
@@ -179,5 +188,20 @@ public abstract class AbstractTideFish extends WaterAnimal implements Bucketable
     @Override
     public void tide$setLength(double length) {
         this.length = length;
+    }
+
+    @Override
+    public boolean isShiny() {
+        return this.isShiny;
+    }
+
+    @Override
+    public boolean hasCustomShinySprite() {
+        return this.hasCustomShinySprite;
+    }
+
+    @Override
+    public void setIsShiny(boolean isShiny) {
+        this.isShiny = isShiny;
     }
 }

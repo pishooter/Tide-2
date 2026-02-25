@@ -25,6 +25,7 @@ public class FishDisplayBlockEntity extends BlockEntity {
     private Entity renderedEntity;
     private double lengthCm;
     private double baseLengthCm;
+    private boolean isShiny;
 
     public FishDisplayBlockEntity(BlockPos pos, BlockState state) {
         super(TideBlockEntities.FISH_DISPLAY, pos, state);
@@ -50,6 +51,10 @@ public class FishDisplayBlockEntity extends BlockEntity {
         return this.baseLengthCm;
     }
 
+    public boolean isShiny() {
+        return this.isShiny;
+    }
+
     public boolean setDisplayStack(ItemStack stack) {
         if (!isEmpty()) return false;
         var dataOp = FishData.getExact(stack);
@@ -60,6 +65,7 @@ public class FishDisplayBlockEntity extends BlockEntity {
         this.displayData = displayOp.get();
         this.baseLengthCm = dataOp.get().getAverageLength();
         this.lengthCm = TideItemData.FISH_LENGTH.getOrDefault(stack, baseLengthCm);
+        this.isShiny = TideItemData.IS_SHINY.getOrDefault(stack, false);
 
         this.updateShape(displayData.shape());
         this.markUpdated();
@@ -74,6 +80,7 @@ public class FishDisplayBlockEntity extends BlockEntity {
         this.renderedEntity = null;
         this.lengthCm = 0;
         this.baseLengthCm = 0;
+        this.isShiny = false;
 
         this.updateShape(FishDisplayShape.SHAPE_1x1);
         this.markUpdated();
@@ -98,6 +105,9 @@ public class FishDisplayBlockEntity extends BlockEntity {
             this.fish = null;
             this.displayData = null;
             this.renderedEntity = null;
+            this.lengthCm = 0;
+            this.baseLengthCm = 0;
+            this.isShiny = false;
         }
     }
 

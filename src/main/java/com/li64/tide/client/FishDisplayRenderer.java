@@ -4,9 +4,11 @@ import com.li64.tide.compat.CompatHelper;
 import com.li64.tide.data.fishing.DisplayData;
 import com.li64.tide.registries.blocks.FishDisplayBlock;
 import com.li64.tide.registries.blocks.entities.FishDisplayBlockEntity;
+import com.li64.tide.registries.entities.fish.ShinyFish;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -55,6 +57,7 @@ public record FishDisplayRenderer(EntityRenderDispatcher entityRenderer) impleme
             if (entity != null) {
                 if (displayData.nbt().isPresent()) entity.load(displayData.nbt().get());
                 if (CompatHelper.isHybridAquaticLoaded()) CompatHelper.hybridAquaticApplyVariant(entity, display.getDisplayStack());
+                if (entity instanceof ShinyFish shiny && display.isShiny()) shiny.setIsShiny(true);
                 entity.xRotO = entity.getXRot();
                 entity.yRotO = entity.getYRot();
             }
@@ -73,7 +76,8 @@ public record FishDisplayRenderer(EntityRenderDispatcher entityRenderer) impleme
             this.entityRenderer.render(entity,
                     0, 0, 0,
                     0, 0,
-                    poseStack, buffer, packedLight
+                    poseStack, buffer,
+                    display.isShiny() ? LightTexture.FULL_BRIGHT : packedLight
             );
             poseStack.popPose();
         }

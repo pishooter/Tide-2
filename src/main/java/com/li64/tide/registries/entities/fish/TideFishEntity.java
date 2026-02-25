@@ -30,13 +30,22 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("unused")
-public class TideFishEntity extends AbstractSchoolingFish {
+public class TideFishEntity extends AbstractSchoolingFish implements ShinyFish {
     private final Item bucketItem;
+
+    private boolean isShiny;
+    private boolean hasCustomShinySprite;
 
     public TideFishEntity(EntityType<? extends AbstractSchoolingFish> entityType, Level level) {
         super(entityType, level);
         ResourceLocation key = BuiltInRegistries.ENTITY_TYPE.getKey(entityType);
         this.bucketItem = BuiltInRegistries.ITEM.getOptional(key.withSuffix("_bucket")).orElseThrow();
+
+        Item fishItem = BuiltInRegistries.ITEM.getOptional(key).orElseThrow();
+        FishData data = FishData.get(fishItem).orElse(null);
+        if (data == null) return;
+        this.isShiny = true; // TODO
+        this.hasCustomShinySprite = data.shinyData().sprite().isPresent();
     }
 
     @Override
@@ -117,5 +126,20 @@ public class TideFishEntity extends AbstractSchoolingFish {
 //        if (conditionsMatch && !nonzeroWeight) info = "Failed, modifiers didn't match";
 //        Tide.LOG.info("Trying to spawn tide fish '{}' at {}. {}", entityType, pos, info);
         return conditionsMatch && nonzeroWeight;
+    }
+
+    @Override
+    public boolean isShiny() {
+        return this.isShiny;
+    }
+
+    @Override
+    public boolean hasCustomShinySprite() {
+        return this.hasCustomShinySprite;
+    }
+
+    @Override
+    public void setIsShiny(boolean isShiny) {
+        this.isShiny = isShiny;
     }
 }
