@@ -5,7 +5,10 @@ import com.li64.tide.data.item.SatchelContents;
 import com.li64.tide.data.item.TideDataComponents;
 import com.li64.tide.data.TideTags;
 import com.li64.tide.data.item.TideItemData;
+import com.li64.tide.data.rods.BaitContents;
+import com.li64.tide.data.rods.FishingRodTooltip;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -136,21 +139,26 @@ public class FishSatchelItem extends AbstractTooltipItem {
         return BAR_COLOR;
     }
 
+
+    //? if >=1.21 {
     @Override
     public @NotNull Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
         return !stack.has(DataComponents.HIDE_TOOLTIP) && !stack.has(DataComponents.HIDE_ADDITIONAL_TOOLTIP)
                 ? Optional.ofNullable(TideItemData.SATCHEL_CONTENTS.getOrDefault(stack, new SatchelContents()))
-                        .map(contents -> new BundleTooltip(new BundleContents(contents.items())))
+                .map(contents -> new BundleTooltip(new BundleContents(contents.items())))
                 : Optional.empty();
     }
-
-    @Override
-    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        SatchelContents contents = TideItemData.SATCHEL_CONTENTS.get(stack);
-        if (contents != null) lines.add(Component.translatable("item.minecraft.bundle.fullness",
-                contents.size(), SatchelContents.MAX_STACKS).withStyle(ChatFormatting.GRAY));
-        super.appendHoverText(stack, context, lines, flag);
+    //?} else {
+    /*@Override
+    public @NotNull Optional<TooltipComponent> getTooltipImage(@NotNull ItemStack stack) {
+        return Optional.ofNullable(TideItemData.SATCHEL_CONTENTS.getOrDefault(stack, new SatchelContents()))
+                .map(contents -> {
+                    NonNullList<ItemStack> stacks = NonNullList.create();
+                    stacks.addAll(contents.items());
+                    return new BundleTooltip(stacks, 0);
+                });
     }
+    *///?}
 
     @Override
     public void onDestroyed(ItemEntity entity) {
@@ -171,6 +179,9 @@ public class FishSatchelItem extends AbstractTooltipItem {
     @Override
     public void addTooltip(ItemStack stack, Consumer<Component> tooltip) {
         Style gray = Component.empty().getStyle().withColor(ChatFormatting.GRAY);
+        SatchelContents contents = TideItemData.SATCHEL_CONTENTS.get(stack);
+        if (contents != null) tooltip.accept(Component.translatable("item.minecraft.bundle.fullness",
+                contents.size(), SatchelContents.MAX_STACKS).withStyle(ChatFormatting.GRAY));
         tooltip.accept(Component.translatable("item.tide.fish_satchel.desc_0").setStyle(gray));
         tooltip.accept(Component.translatable("item.tide.fish_satchel.desc_1").setStyle(gray));
     }

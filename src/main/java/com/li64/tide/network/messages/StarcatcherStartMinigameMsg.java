@@ -1,5 +1,6 @@
 //? if neoforge || forge {
-/*package com.li64.tide.network.messages;
+/*//? if >=1.21 {
+package com.li64.tide.network.messages;
 
 import com.li64.tide.Tide;
 import com.li64.tide.compat.starcatcher.TideStarcatcherMinigameScreen;
@@ -31,4 +32,37 @@ public record StarcatcherStartMinigameMsg(FishProperties properties, ItemStack r
         Minecraft.getInstance().setScreen(new TideStarcatcherMinigameScreen(message.properties, message.rod));
     }
 }
+//?} else {
+/^package com.li64.tide.network.messages;
+
+import com.li64.tide.Tide;
+import com.li64.tide.compat.starcatcher.TideStarcatcherMinigameScreen;
+import com.wdiscute.starcatcher.registry.FishProperties;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+
+public record StarcatcherStartMinigameMsg(FishProperties properties, ItemStack rod) implements TidePacketPayload {
+    public static final ResourceLocation ID = Tide.resource("start_starcatcher_minigame");
+    @Override public ResourceLocation id() { return ID; }
+
+    public StarcatcherStartMinigameMsg(FriendlyByteBuf buf) {
+        this(
+                buf.readJsonWithCodec(FishProperties.CODEC),
+                buf.readJsonWithCodec(ItemStack.CODEC)
+        );
+    }
+
+    public static void encode(StarcatcherStartMinigameMsg message, FriendlyByteBuf buf) {
+        buf.writeJsonWithCodec(FishProperties.CODEC, message.properties);
+        buf.writeJsonWithCodec(ItemStack.CODEC, message.rod);
+    }
+
+    public static void handle(StarcatcherStartMinigameMsg message, Player player) {
+        Minecraft.getInstance().setScreen(new TideStarcatcherMinigameScreen(message.properties, message.rod));
+    }
+}
+^///?}
 *///?}

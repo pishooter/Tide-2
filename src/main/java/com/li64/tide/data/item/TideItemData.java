@@ -45,6 +45,9 @@ public final class TideItemData {
                 return ResourceKey.create(Registries.ITEM, ResourceLocation.tryParse(tag.getString("FishyNoteVariant")));
             },
             (tag, value) -> tag.putString("FishyNoteVariant", value.location().toString()));
+    public static final ItemDataKey<SatchelContents> SATCHEL_CONTENTS = new NbtItemDataKey<>(
+            "FishSatchelContents", SatchelContents::fromNbt,
+            (tag, value) -> value.toNbt(tag));
     public static final ItemDataKey<Boolean> FISH_SATCHEL_OPENED = new NbtItemDataKey<>(
             "FishSatchelOpened", tag -> tag.getBoolean("FishSatchelOpened"),
             (tag, value) -> tag.putBoolean("FishSatchelOpened", value));
