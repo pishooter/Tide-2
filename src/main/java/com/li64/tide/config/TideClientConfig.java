@@ -4,7 +4,6 @@ import com.li64.tide.Tide;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
-import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 
 @Config(name = Tide.MOD_ID + "_client")
 public final class TideClientConfig implements ConfigData {

@@ -108,6 +108,16 @@ public class TideLavaFish extends LavaAnimal implements Bucketable, FishLengthHo
     }
 
     @Override
+    public boolean requiresCustomPersistence() {
+        return super.requiresCustomPersistence() || this.fromBucket();
+    }
+
+    @Override
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+        return !this.fromBucket() && !this.hasCustomName();
+    }
+
+    @Override
     protected @Nullable SoundEvent getHurtSound(@NotNull DamageSource source) {
         return SoundEvents.COD_HURT;
     }

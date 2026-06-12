@@ -62,6 +62,16 @@ public abstract class AbstractTideFish extends WaterAnimal implements Bucketable
         return true;
     }
 
+    @Override
+    public boolean requiresCustomPersistence() {
+        return super.requiresCustomPersistence() || this.fromBucket();
+    }
+
+    @Override
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+        return !this.fromBucket() && !this.hasCustomName();
+    }
+
     //? if <1.21 {
     /*public boolean isInLiquid() {
         return this.isInWaterOrBubble() || this.isInLava();

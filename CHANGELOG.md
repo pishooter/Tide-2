@@ -64,7 +64,7 @@
 ### Fixes
 - Items crafted from netherite will no longer be destroyed when dropped in fire or lava [(#18)](https://github.com/Lightning-64/Tide-2/issues/18)
 - Fixed a bug where removing a fish from a fish display wouldn't update for other players in the world [(#25)](https://github.com/Lightning-64/Tide-2/issues/25)
-- Bait is now properly consumed when catching fish with Stardew Fishing installed (TODO)
+- Fixed a bug where certain fish would despawn even if they were released from a bucket or given a custom name
 - Fixed many bugs related to the Fish Satchel
 
 ---

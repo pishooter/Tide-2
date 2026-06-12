@@ -11,12 +11,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.item.FallingBlockEntity;
-import net.minecraft.world.item.Item;
-
-//? if >=1.21 {
-import net.minecraft.world.item.component.CustomData;
-import net.minecraft.core.component.DataComponents;
-//?}
 
 import java.util.ArrayList;
 import java.util.HashMap;
