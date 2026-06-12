@@ -11,12 +11,12 @@ import java.util.ArrayList;
 public class CuriosCompat {
     public static void addInformationalItems(Player player, ArrayList<Item> items) {
         var itemHandler = CuriosApi.getCuriosInventory(player);
-        if (itemHandler.isEmpty()) return;
-        itemHandler.get().findCurios(stack -> stack.is(TideTags.Items.INFORMATIONAL))
+        itemHandler.ifPresent(handler -> handler
+                .findCurios(stack -> stack.is(TideTags.Items.INFORMATIONAL))
                 .forEach(result -> {
                     Item item = result.stack().getItem();
                     if (!items.contains(item)) items.add(item);
-                });
+                }));
     }
 }
 *///?}

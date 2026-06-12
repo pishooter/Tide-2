@@ -78,9 +78,9 @@ public class NeoforgeEventHandler {
     @SubscribeEvent
     public static void modifyVillagerTrades(final VillagerTradesEvent event) {
         if (event.getType() != VillagerProfession.FISHERMAN) return;
-        event.getTrades().get(4).add(new VillagerTrades.ItemsForEmeralds(
+        event.getTrades().get(4).add((entity, random) -> new MerchantOffer(
+                new ItemStack(Items.EMERALD, 15),
                 new ItemStack(TideItems.VILLAGE_FISHING_ROD, 1),
-                15, 1,
                 1, 15, 0.05f
         ));
     }

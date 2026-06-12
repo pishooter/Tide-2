@@ -11,12 +11,18 @@ import com.li64.tide.events.TideEventHandler;
 import com.li64.tide.registries.TideFish;
 import com.li64.tide.registries.TideItems;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.server.ServerStartedEvent;
+import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -45,6 +51,11 @@ public class ForgeEventHandler {
     }
 
     @SubscribeEvent
+    public static void onServerTick(final TickEvent.ServerTickEvent event) {
+        if (event.phase == TickEvent.Phase.END) TideEventHandler.endServerTick(event.getServer());
+    }
+
+    @SubscribeEvent
     public static void onEntityJoinWorld(final PlayerEvent.PlayerLoggedInEvent event) {
         TideEventHandler.onPlayerJoinWorld((ServerPlayer) event.getEntity());
     }
@@ -63,6 +74,16 @@ public class ForgeEventHandler {
         if (event.getItemStack().is(TideItems.FISH_DISPLAY)) event.setBurnTime(300);
         if (event.getItemStack().is(TideItems.FISHY_NOTE)) event.setBurnTime(200);
         if (event.getItemStack().is(TideFish.INFERNO_GUPPY)) event.setBurnTime(3200);
+    }
+
+    @SubscribeEvent
+    public static void modifyVillagerTrades(final VillagerTradesEvent event) {
+        if (event.getType() != VillagerProfession.FISHERMAN) return;
+        event.getTrades().get(4).add((entity, random) -> new MerchantOffer(
+                new ItemStack(Items.EMERALD, 15),
+                new ItemStack(TideItems.VILLAGE_FISHING_ROD, 1),
+                1, 15, 0.05f
+        ));
     }
 }
 *///?}

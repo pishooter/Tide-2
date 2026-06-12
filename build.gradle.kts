@@ -200,6 +200,8 @@ dependencies {
         if (minecraft == "1.20.1") {
             // forge 1.20.1
             modstitchModApi("me.shedaniel.cloth:cloth-config-forge:11.1.136")
+            modstitchModApi("top.theillusivec4.curios:curios-forge:5.14.1+1.20.1:api")
+            // modstitchModRuntimeOnly("top.theillusivec4.curios:curios-forge:5.14.1+1.20.1")
             modstitchModCompileOnly("curse.maven:serene-seasons-291874:6398227")
             modstitchModCompileOnly("curse.maven:ecliptic-seasons-1118306:7304569")
             modstitchModCompileOnly("curse.maven:stardew-fishing-1066037:7266346")

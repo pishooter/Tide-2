@@ -1,4 +1,4 @@
-//? if neoforge || forge {
+//? if neoforge {
 /*package com.li64.tide.compat.starcatcher;
 
 import com.li64.tide.Tide;
@@ -40,4 +40,6 @@ public class StarcatcherCompat {
         return true;
     }
 }
-*///?}
+*///?} else if forge {
+
+//?}

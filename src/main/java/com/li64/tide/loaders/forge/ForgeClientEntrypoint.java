@@ -2,7 +2,6 @@
 /*package com.li64.tide.loaders.forge;
 
 import com.li64.tide.Tide;
-import com.li64.tide.TideConfig;
 import com.li64.tide.client.FishDisplayRenderer;
 import com.li64.tide.client.TideCoreShaders;
 import com.li64.tide.client.TideItemModelProperties;
@@ -10,7 +9,10 @@ import com.li64.tide.client.VoidParticleSpawner;
 import com.li64.tide.client.gui.TideMenuTypes;
 import com.li64.tide.client.gui.overlays.CastBarOverlay;
 import com.li64.tide.client.gui.overlays.CatchMinigameOverlay;
+import com.li64.tide.client.gui.overlays.FishingInfoOverlay;
+import com.li64.tide.client.gui.overlays.SonarOverlay;
 import com.li64.tide.client.gui.screens.AnglingTableScreen;
+import com.li64.tide.config.TideClientConfig;
 import com.li64.tide.data.DoubleJumper;
 import com.li64.tide.data.rods.ClientFishingRodTooltip;
 import com.li64.tide.data.rods.FishingRodTooltip;
@@ -27,7 +29,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.ShaderInstance;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraftforge.api.distmarker.Dist;
@@ -71,25 +72,16 @@ public class ForgeClientEntrypoint {
     public static class ModBus {
         @SubscribeEvent
         public static void onClientSetup(final FMLClientSetupEvent event) {
-            ModLoadingContext.get().registerExtensionPoint(
-                    ConfigScreenHandler.ConfigScreenFactory.class,
-                    () -> new ConfigScreenHandler.ConfigScreenFactory(
-                            (mc, screen) -> AutoConfig.getConfigScreen(TideConfig.class, screen).get())
-            );
-
             event.enqueueWork(() -> {
-                ItemProperties.register(TideItems.STONE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-                ItemProperties.register(TideItems.IRON_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-                ItemProperties.register(TideItems.GOLDEN_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-                ItemProperties.register(TideItems.CRYSTAL_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-                ItemProperties.register(TideItems.DIAMOND_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-                ItemProperties.register(TideItems.MIDAS_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-                ItemProperties.register(TideItems.NETHERITE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-                ItemProperties.register(TideItems.STARLIGHT_BOW, TideItemModelProperties.PULLING_PROPERTY, TideItemModelProperties.PULLING_FUNCTION);
-                ItemProperties.register(TideItems.STARLIGHT_BOW, TideItemModelProperties.PULL_PROPERTY, TideItemModelProperties.PULL_FUNCTION);
-                ItemProperties.register(TideItems.FISH_SATCHEL, TideItemModelProperties.SATCHEL_STATE_PROPERTY, TideItemModelProperties.SATCHEL_STATE_FUNCTION);
+                ModLoadingContext.get().registerExtensionPoint(
+                        ConfigScreenHandler.ConfigScreenFactory.class,
+                        () -> new ConfigScreenHandler.ConfigScreenFactory(
+                                (mc, screen) -> AutoConfig.getConfigScreen(TideClientConfig.class, screen).get())
+                );
 
                 MenuScreens.register(TideMenuTypes.ANGLING_TABLE, AnglingTableScreen::new);
+
+                TideItemModelProperties.registerAll();
             });
         }
 
@@ -131,7 +123,7 @@ public class ForgeClientEntrypoint {
 
         @SubscribeEvent
         public static void registerClientTooltipComponents(final RegisterClientTooltipComponentFactoriesEvent event) {
-            event.register(FishingRodTooltip.class, tooltip -> new ClientFishingRodTooltip(tooltip.contents()));
+            event.register(FishingRodTooltip.class, tooltip -> new ClientFishingRodTooltip(tooltip.slots(), tooltip.contents()));
         }
 
         @SubscribeEvent
@@ -142,6 +134,12 @@ public class ForgeClientEntrypoint {
             event.registerAbove(VanillaGuiOverlay.HOTBAR.id(), "minigame_overlay",
                     (forgeGui, graphics, partialTick, w, h) ->
                             CatchMinigameOverlay.render(graphics, Minecraft.getInstance().getDeltaFrameTime()));
+            event.registerAbove(VanillaGuiOverlay.HOTBAR.id(), "sonar_overlay",
+                    (forgeGui, graphics, partialTick, w, h) ->
+                            SonarOverlay.render(graphics, Minecraft.getInstance().getDeltaFrameTime()));
+            event.registerAbove(VanillaGuiOverlay.HOTBAR.id(), "fishing_info_overlay",
+                    (forgeGui, graphics, partialTick, w, h) ->
+                            FishingInfoOverlay.render(graphics, Minecraft.getInstance().getDeltaFrameTime()));
         }
     }
 }

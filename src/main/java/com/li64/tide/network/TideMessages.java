@@ -21,7 +21,7 @@ public class TideMessages {
         network.registerClientBoundPacket(SyncPlayerDataMsg.class, SyncPlayerDataMsg.ID, SyncPlayerDataMsg::encode, SyncPlayerDataMsg::new, SyncPlayerDataMsg::handle);
         network.registerClientBoundPacket(ShowToastMsg.class, ShowToastMsg.ID, ShowToastMsg::encode, ShowToastMsg::new, ShowToastMsg::handle);
         network.registerClientBoundPacket(SyncDataMsg.class, SyncDataMsg.ID, SyncDataMsg::encode, SyncDataMsg::new, SyncDataMsg::handle);
-        /*? if neoforge || forge*//*network.registerClientBoundPacket(StarcatcherStartMinigameMsg.class, StarcatcherStartMinigameMsg.ID, StarcatcherStartMinigameMsg::encode, StarcatcherStartMinigameMsg::new, StarcatcherStartMinigameMsg::handle);*/
+        /*? if neoforge*//*network.registerClientBoundPacket(StarcatcherStartMinigameMsg.class, StarcatcherStartMinigameMsg.ID, StarcatcherStartMinigameMsg::encode, StarcatcherStartMinigameMsg::new, StarcatcherStartMinigameMsg::handle);*/
 
         network.registerServerBoundPacket(MinigameServerMsg.class, MinigameServerMsg.ID, MinigameServerMsg::encode, MinigameServerMsg::new, MinigameServerMsg::handle);
         network.registerServerBoundPacket(ReadProfileMsg.class, ReadProfileMsg.ID, ReadProfileMsg::encode, ReadProfileMsg::new, ReadProfileMsg::handle);

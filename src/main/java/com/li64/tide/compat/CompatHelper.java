@@ -20,8 +20,8 @@ import java.util.List;
 import com.li64.tide.compat.accessories.TrinketsCompat;
 //?} else {
 /*import com.li64.tide.compat.stardewfishing.StardewFishingCompat;
-import com.li64.tide.compat.starcatcher.StarcatcherCompat;
 import com.li64.tide.compat.accessories.CuriosCompat;
+/^? if neoforge^//^import com.li64.tide.compat.starcatcher.StarcatcherCompat;^/
 *///?}
 
 public class CompatHelper {
@@ -46,7 +46,7 @@ public class CompatHelper {
     }
 
     public static boolean starcatcherStartMinigame(ServerPlayer player, HookAccessor hook, ItemStack rod, List<ItemStack> hookedItems) {
-        /*? if neoforge || forge {*/ /*return StarcatcherCompat.start(player, hook, rod, hookedItems);
+        /*? if neoforge {*/ /*return StarcatcherCompat.start(player, hook, rod, hookedItems);
         *//*?} else*/ return false;
     }
 

@@ -7,6 +7,7 @@ import com.li64.tide.data.TideCriteriaTriggers;
 import com.li64.tide.data.TideRecipeSerializers;
 import com.li64.tide.data.fishing.conditions.FishingConditionType;
 import com.li64.tide.data.fishing.modifiers.FishingModifierType;
+import com.li64.tide.data.loot.modifiers.TideLootModifiers;
 import com.li64.tide.network.TideMessages;
 import com.li64.tide.registries.*;
 import com.li64.tide.registries.entities.TideSpawnConfigs;
@@ -70,6 +71,8 @@ public class ForgeEntrypoint {
         PARTICLE_TYPES.register(eventBus);
         LOOT_FUNCTION_TYPES.register(eventBus);
         RECIPE_SERIALIZERS.register(eventBus);
+
+        TideLootModifiers.register(eventBus);
 
         TideCriteriaTriggers.init();
 
