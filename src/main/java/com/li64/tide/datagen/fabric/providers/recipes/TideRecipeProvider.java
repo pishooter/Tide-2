@@ -386,6 +386,33 @@ public class TideRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy("has_gold_ingot", has(TideTags.Convention.GOLD_INGOTS))
                 .save(output);
 
+        shaped(RecipeCategory.TOOLS, TideItems.TWILIGHT_HOOK)
+                .pattern("  #")
+                .pattern("I I")
+                .pattern(" I ")
+                .define('I', TideTags.Convention.IRON_INGOTS)
+                .define('#', Items.CLOCK)
+                .unlockedBy("has_clock", has(Items.CLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.TOOLS, TideItems.FIERY_HOOK)
+                .pattern("  #")
+                .pattern("I I")
+                .pattern(" I ")
+                .define('I', TideTags.Convention.IRON_INGOTS)
+                .define('#', Items.BLAZE_ROD)
+                .unlockedBy("has_blaze_rod", has(Items.BLAZE_ROD))
+                .save(output);
+
+        shaped(RecipeCategory.TOOLS, TideItems.PERMAFROST_HOOK)
+                .pattern("  #")
+                .pattern("I I")
+                .pattern(" I ")
+                .define('I', TideTags.Convention.IRON_INGOTS)
+                .define('#', Items.BLUE_ICE)
+                .unlockedBy("has_blue_ice", has(Items.BLUE_ICE))
+                .save(output);
+
         shaped(RecipeCategory.TOOLS, TideItems.VOID_HOOK)
                 .pattern("  #")
                 .pattern("#D#")

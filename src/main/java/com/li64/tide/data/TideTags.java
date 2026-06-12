@@ -155,7 +155,7 @@ public class TideTags {
         public static final TagKey<Biome> IS_JUNGLE = create("is_jungle", Registries.BIOME);
         public static final TagKey<Biome> IS_SWAMP = create("is_swamp", Registries.BIOME);
         public static final TagKey<Biome> IS_MUSHROOM = create("is_mushroom", Registries.BIOME);
-        public static final TagKey<Biome> IS_PLAINS = create("plains", Registries.BIOME);
+        public static final TagKey<Biome> IS_PLAINS = create("is_plains", Registries.BIOME);
 
         public static <T> TagKey<T> create(String id, ResourceKey<Registry<T>> registryKey) {
             return TagKey.create(registryKey, Tide.resource("c", id));

@@ -5,7 +5,6 @@ import com.li64.tide.data.item.SatchelContents;
 import com.li64.tide.data.TideTags;
 import com.li64.tide.data.item.TideItemData;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.sounds.SoundEvents;
@@ -27,7 +26,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-/*? if >=1.21*/import java.util.List;
+/*? if >=1.21 {*/
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.component.BundleContents;
+import java.util.List;
+/*?} else*//*import net.minecraft.core.NonNullList;*/
 
 public class FishSatchelItem extends AbstractTooltipItem {
     private static final int BAR_COLOR = Mth.color(0.4f, 0.4f, 1.0f);

@@ -15,8 +15,8 @@
 - The effectiveness of higher levels of fishing speed has been slightly increased to counteract the `biteTimeMultiplier` of different fishing mediums
 
 **Fishy Notes**
-- Fish silhouettes are now shown in the fishy note GUI, helping you to identify which fish it might be
-- Reading a Fishy Note will now unlock it in the fishing journal under its corresponding fish
+- Fish silhouettes are now shown in the fishy note GUI, helping you to identify which fish it might be.
+- Reading a Fishy Note will now unlock it in the fishing journal under its corresponding fish.
 
 **Items**
 - Added 3 new fishing hooks:
@@ -27,17 +27,16 @@
   - Copper Line
   - Iron Line
   - Diamond Line
-- Added 8 new themed fishing rods: (TODO on neo)
-  - Rod of Resonance
-  - Prismarine Fishing Rod
-  - The Suncatcher
-  - Rod of the Hero
-  - Beeline
-  - Gale Fishing Rod (TODO)
+- Added 8 new themed fishing rods:
+  - Rod of Resonance (ancient city chests)
+  - Prismarine Fishing Rod (drops from elder guardians)
+  - The Suncatcher (rare catch in plains biomes)
+  - Rod of the Hero (purchased from master fishermen villagers)
+  - Beeline (rare drop from shearing beehives)
 - Added 3 new bait items:
   - Incandescent Bait
   - Abyss Bait
-- Added Fish Finder
+- Added Fish Finder (see below)
 
 **Informational Items**
 - Informational items such as the pocket watch and climate gauge now display their stats as a GUI overlay instead of requiring the player to right-click them
@@ -51,14 +50,14 @@
 **Config**
 - The config has been split into a client and server file, with only the client file being changeable via the config screen
 - Comments have been added to properties in the main config file
-- NOTE: it's recommended to take a look at the new generated config file "tide.json5" and make sure that none of your config settings were lost.
+- NOTE: it's recommended to take a look at the new generated config file "tide.json5" and make sure that none of your config settings were lost (if you changed anything, they probably were).
 
 **Miscellaneous**
 - The Midas Fishing Rod can now reel in a bonus golden apple, golden carrot, and _very rarely_ an enchanted golden apple or totem of undying (in addition to the regular gold ingots and blocks)
 - Caught fish will no longer become "unbucketable" after a certain amount of time
 - Lowered Midas Fish luck requirement from 7 to 5
 - Removed the temperature condition from the Sand Tiger Shark, now only requiring a desert biome
-- Fish Displays will now scale the fish up or down depending on its length
+- Fish Displays will scale the fish up or down depending on its length
 
 ---
 ### Fixes
