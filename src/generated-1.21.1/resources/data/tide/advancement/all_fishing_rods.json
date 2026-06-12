@@ -11,16 +11,6 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "breeze": {
-      "conditions": {
-        "items": [
-          {
-            "items": "tide:breeze_fishing_rod"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "crystal": {
       "conditions": {
         "items": [
@@ -207,9 +197,6 @@
     ],
     [
       "honeycomb"
-    ],
-    [
-      "breeze"
     ]
   ],
   "sends_telemetry_event": true

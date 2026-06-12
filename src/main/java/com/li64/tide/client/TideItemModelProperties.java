@@ -55,7 +55,6 @@ public class TideItemModelProperties {
         ItemProperties.register(TideItems.VILLAGE_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
         ItemProperties.register(TideItems.BLAZING_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
         ItemProperties.register(TideItems.HONEYCOMB_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
-        ItemProperties.register(TideItems.BREEZE_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
 
         ItemProperties.register(TideItems.STARLIGHT_BOW, PULLING_PROPERTY, PULLING_FUNCTION);
         ItemProperties.register(TideItems.STARLIGHT_BOW, PULL_PROPERTY, PULL_FUNCTION);

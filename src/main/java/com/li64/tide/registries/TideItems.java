@@ -39,7 +39,6 @@ public class TideItems {
     public static final Item VILLAGE_FISHING_ROD = register("village_fishing_rod", properties -> new TideFishingRodItem(4, 256, properties));
     public static final Item BLAZING_FISHING_ROD = register("blazing_fishing_rod", properties -> new TideFishingRodItem(4, 256, properties));
     public static final Item HONEYCOMB_FISHING_ROD = register("honeycomb_fishing_rod", properties -> new TideFishingRodItem(5, 256, properties));
-    public static final Item BREEZE_FISHING_ROD = register("breeze_fishing_rod", properties -> new TideFishingRodItem(3, 256, properties));
     public static final Item MIDAS_FISHING_ROD = register("midas_fishing_rod", properties -> new TideFishingRodItem(3, 256, properties));
 
     public static final Item BAIT = register("bait", Item::new);
@@ -169,7 +168,7 @@ public class TideItems {
                     CRYSTAL_FISHING_ROD, DIAMOND_FISHING_ROD, NETHERITE_FISHING_ROD,
                     ECHO_FISHING_ROD, PRISMARINE_FISHING_ROD, SUNFLOWER_FISHING_ROD,
                     VILLAGE_FISHING_ROD, BLAZING_FISHING_ROD, HONEYCOMB_FISHING_ROD,
-                    BREEZE_FISHING_ROD, MIDAS_FISHING_ROD,
+                    MIDAS_FISHING_ROD,
 
                     BAIT, LUCKY_BAIT, MAGNETIC_BAIT, INCANDESCENT_BAIT, ABYSS_BAIT,
 

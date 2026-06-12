@@ -59,7 +59,6 @@ public class TideLanguageProvider extends FabricLanguageProvider {
         builder.add(TideItems.VILLAGE_FISHING_ROD, "Rod of the Hero");
         builder.add(TideItems.BLAZING_FISHING_ROD, "Blazing Fishing Rod");
         builder.add(TideItems.HONEYCOMB_FISHING_ROD, "Beeline");
-        builder.add(TideItems.BREEZE_FISHING_ROD, "Gale Fishing Rod");
 
         builder.add(TideItems.WHITE_BOBBER, "White Bobber");
         builder.add(TideItems.ORANGE_BOBBER, "Orange Bobber");
@@ -277,11 +276,11 @@ public class TideLanguageProvider extends FabricLanguageProvider {
         builder.add("text.tide.rod_tooltip.gold_bonus", "+1 luck");
         builder.add("text.tide.rod_tooltip.diamond_bonus", "Extra XP");
         builder.add("text.tide.rod_tooltip.netherite_bonus", "Can fish in lava");
-        builder.add("text.tide.rod_tooltip.midas_bonus", "Catch additional gold items");
+        builder.add("text.tide.rod_tooltip.midas_bonus", "Can catch additional gold items");
         builder.add("text.tide.rod_tooltip.echo_bonus", "Detects which fish is hooked");
         builder.add("text.tide.rod_tooltip.prismarine_bonus", "+1 speed and luck while in the rain");
         builder.add("text.tide.rod_tooltip.sunflower_bonus", "+1 luck while in sunlight");
-        builder.add("text.tide.rod_tooltip.village_bonus", "Catch additional village loot");
+        builder.add("text.tide.rod_tooltip.village_bonus", "Can catch additional loot");
         builder.add("text.tide.rod_tooltip.blazing_bonus", "Can catch nether fish in any lava");
 
         builder.add("text.tide.bait_tooltip.unknown_effects", "Can be used as bait");

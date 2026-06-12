@@ -6,6 +6,7 @@ import com.li64.tide.client.gui.TideMenuTypes;
 import com.li64.tide.data.TideCriteriaTriggers;
 import com.li64.tide.data.item.TideDataComponents;
 import com.li64.tide.data.TideRecipeSerializers;
+import com.li64.tide.data.loot.modifiers.TideLootModifiers;
 import com.li64.tide.network.TideMessages;
 import com.li64.tide.registries.*;
 import com.li64.tide.registries.entities.TideSpawnConfigs;
@@ -21,10 +22,10 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
-import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.neoforged.neoforge.registries.NewRegistryEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import org.jetbrains.annotations.NotNull;
@@ -60,6 +61,11 @@ public class NeoforgeEntrypoint {
         createDeferredRegister(BuiltInRegistries.LOOT_FUNCTION_TYPE);
         createDeferredRegister(BuiltInRegistries.RECIPE_SERIALIZER);
         createDeferredRegister(BuiltInRegistries.ARMOR_MATERIAL);
+
+        REGISTER_MAP.put(
+                NeoForgeRegistries.GLOBAL_LOOT_MODIFIER_SERIALIZERS,
+                TideLootModifiers.GLOBAL_LOOT_MODIFIER_SERIALIZERS
+        );
     }
 
     private static <T> void createDeferredRegister(Registry<T> registry) {

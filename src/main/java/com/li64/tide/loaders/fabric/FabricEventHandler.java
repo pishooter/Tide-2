@@ -96,20 +96,15 @@ public class FabricEventHandler {
             if (key == BuiltInLootTables.NETHER_BRIDGE) {
                 tableBuilder.pool(new LootPool.Builder().setRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(TideItems.BLAZING_FISHING_ROD))
-                        .when(LootItemRandomChanceCondition.randomChance(0.2f))
+                        .when(LootItemRandomChanceCondition.randomChance(0.3f))
                         .build()
                 );
-            }
-
-            if (key == BuiltInLootTables.TRIAL_CHAMBERS_REWARD_UNIQUE || key == BuiltInLootTables.TRIAL_CHAMBERS_REWARD_OMINOUS_UNIQUE) {
-                tableBuilder.modifyPools(builder -> builder
-                        .add(LootItem.lootTableItem(TideItems.BREEZE_FISHING_ROD).setWeight(3)));
             }
 
             if (key == EntityType.ELDER_GUARDIAN.getDefaultLootTable()) {
                 tableBuilder.pool(new LootPool.Builder().setRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(TideItems.PRISMARINE_FISHING_ROD))
-                        .when(LootItemRandomChanceCondition.randomChance(0.4f))
+                        .when(LootItemRandomChanceCondition.randomChance(0.5f))
                         .build()
                 );
             }

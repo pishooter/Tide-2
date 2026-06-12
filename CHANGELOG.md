@@ -1,4 +1,4 @@
-## Tide v2.1 - idk/idk/26
+## Tide v2.1 - 6/idk/26
 
 ---
 ### Changes

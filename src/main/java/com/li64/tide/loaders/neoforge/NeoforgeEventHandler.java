@@ -11,6 +11,9 @@ import com.li64.tide.events.TideEventHandler;
 import com.li64.tide.registries.TideFish;
 import com.li64.tide.registries.TideItems;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.AddReloadListenerEvent;
@@ -20,6 +23,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 
 @EventBusSubscriber(modid = Tide.MOD_ID)
 public class NeoforgeEventHandler {
@@ -69,6 +73,16 @@ public class NeoforgeEventHandler {
         if (event.getItemStack().is(TideItems.FISH_DISPLAY)) event.setBurnTime(300);
         if (event.getItemStack().is(TideItems.FISHY_NOTE)) event.setBurnTime(200);
         if (event.getItemStack().is(TideFish.INFERNO_GUPPY)) event.setBurnTime(3200);
+    }
+
+    @SubscribeEvent
+    public static void modifyVillagerTrades(final VillagerTradesEvent event) {
+        if (event.getType() != VillagerProfession.FISHERMAN) return;
+        event.getTrades().get(4).add(new VillagerTrades.ItemsForEmeralds(
+                new ItemStack(TideItems.VILLAGE_FISHING_ROD, 1),
+                15, 1,
+                1, 15, 0.05f
+        ));
     }
 }
 *///?}

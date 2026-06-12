@@ -2,13 +2,13 @@
 /*package com.li64.tide.loaders.neoforge;
 
 import com.li64.tide.Tide;
-import com.li64.tide.TideConfig;
 import com.li64.tide.client.FishDisplayRenderer;
 import com.li64.tide.client.TideCoreShaders;
 import com.li64.tide.client.TideItemModelProperties;
 import com.li64.tide.client.VoidParticleSpawner;
 import com.li64.tide.client.gui.TideMenuTypes;
 import com.li64.tide.client.gui.screens.AnglingTableScreen;
+import com.li64.tide.config.TideClientConfig;
 import com.li64.tide.data.DoubleJumper;
 import com.li64.tide.data.rods.ClientFishingRodTooltip;
 import com.li64.tide.data.rods.FishingRodTooltip;
@@ -40,7 +40,7 @@ public class NeoforgeClientEntrypoint {
     public static void onClientSetup(final FMLClientSetupEvent event) {
         NeoforgeEntrypoint.CONTAINER.registerExtensionPoint(
                 IConfigScreenFactory.class,
-                (mc, screen) -> AutoConfig.getConfigScreen(TideConfig.class, screen).get()
+                (mc, screen) -> AutoConfig.getConfigScreen(TideClientConfig.class, screen).get()
         );
 
         event.enqueueWork(TideItemModelProperties::registerAll);
@@ -53,10 +53,6 @@ public class NeoforgeClientEntrypoint {
                     DefaultVertexFormat.POSITION_TEX_COLOR), instance -> TideCoreShaders.FULL_WHITE = instance);
             event.registerShader(new ShaderInstance(event.getResourceProvider(), Tide.resource("full_white_item"),
                     DefaultVertexFormat.NEW_ENTITY), instance -> TideCoreShaders.FULL_WHITE_ITEM = instance);
-            event.registerShader(new ShaderInstance(event.getResourceProvider(), Tide.resource("shiny_item"),
-                    DefaultVertexFormat.NEW_ENTITY), instance -> TideCoreShaders.SHINY_ITEM = instance);
-            event.registerShader(new ShaderInstance(event.getResourceProvider(), Tide.resource("custom_shiny_item"),
-                    DefaultVertexFormat.NEW_ENTITY), instance -> TideCoreShaders.CUSTOM_SHINY_ITEM = instance);
         } catch (Exception e) {
             Tide.LOG.error("Failed to load Tide shaders! {}", e.toString());
         }
