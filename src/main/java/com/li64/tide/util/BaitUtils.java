@@ -72,13 +72,13 @@ public class BaitUtils {
 
         if (speed != 0)
             builder.add(Component.translatable("text.tide.bait_tooltip.speed",
-                    (speed < 0 ? "-" : "+") + speed).withStyle(ChatFormatting.BLUE));
+                    (speed < 0 ? "" : "+") + speed).withStyle(ChatFormatting.BLUE));
         if (luck != 0)
             builder.add(Component.translatable("text.tide.bait_tooltip.lucky",
-                    (luck < 0 ? "-" : "+") + luck).withStyle(ChatFormatting.BLUE));
+                    (luck < 0 ? "" : "+") + luck).withStyle(ChatFormatting.BLUE));
         if (crateChance != 0)
             builder.add(Component.translatable("text.tide.bait_tooltip.crate",
-                    (crateChance < 0 ? "-" : "+") + crateChance + "%").withStyle(ChatFormatting.BLUE));
+                    (crateChance < 0 ? "" : "+") + crateChance + "%").withStyle(ChatFormatting.BLUE));
 
         if (!builder.isEmpty()) builder.add(0, Component.translatable("text.tide.bait_tooltip.prefix").withStyle(ChatFormatting.GRAY));
         else builder.add(0, Component.translatable("text.tide.bait_tooltip.unknown_effects").withStyle(ChatFormatting.GRAY));
